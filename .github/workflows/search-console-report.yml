@@ -1,0 +1,37 @@
+name: Search Console Weekly Report
+
+on:
+  schedule:
+    - cron: "0 21 * * 1" # 毎週月曜 UTC21:00 = JST 翌6:00
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install script dependencies
+        working-directory: scripts
+        run: npm install --omit=dev
+
+      - name: Fetch Search Console data
+        # GSC_SERVICE_ACCOUNT_JSON / GSC_SITE_URL が未設定でも
+        # スクリプト側で安全にスキップされる（README.md参照）。
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+        run: node scripts/fetch-search-console.mjs
+
+      - name: Commit updated report (if any)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: weekly search console report"
+          file_pattern: "reports/search-console/*.json"

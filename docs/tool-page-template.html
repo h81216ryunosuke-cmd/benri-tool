@@ -1,0 +1,91 @@
+<!--
+  新しいツールページを作成するときのマスターテンプレートです。
+  {{ }} で囲まれたプレースホルダを埋めて、tools/<slug>/index.html として保存してください。
+  実装済みのツール（例: tools/warikan/index.html）も同じ構造なので、実例として参照できます。
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TOOL_NAME}} | べんりツール</title>
+<meta name="description" content="{{META_DESCRIPTION（120字程度、何ができるツールか具体的に）}}">
+<link rel="canonical" href="https://example.com/tools/{{SLUG}}/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "{{TOOL_NAME}}",
+  "url": "https://example.com/tools/{{SLUG}}/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://example.com/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://example.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "{{TOOL_NAME}}", "item": "https://example.com/tools/{{SLUG}}/"}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; {{TOOL_NAME}}</p>
+  <h1>{{TOOL_NAME}}</h1>
+  <p class="lead">{{リード文（1〜2文でツールの用途を説明）}}</p>
+
+  <div class="card">
+    <!-- {{ここに入力フォーム（.field / .checkbox-row / .btn を使用）}} -->
+    <div id="{{SLUG}}-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="ad-slot">広告枠（AdSense承認後に設置）</div>
+
+  <!-- 外部APIを使う場合は note-box で開示すること（zip-address / qr-generator を参照） -->
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// {{ここに計算・変換ロジックを実装。外部ライブラリへのCDN依存は避け、
+//   どうしても必要な場合は assets/js/vendor/ にローカル同梱すること}}
+</script>
+</body>
+</html>
+
+<!--
+新規ツール追加時のチェックリスト:
+1. tools/<slug>/index.html をこのテンプレートから作成
+2. index.html と tools/index.html にカードを追加
+3. sitemap.xml にURLを追加（scripts/generate-sitemap.mjs があれば実行）
+4. docs/niche-tool-ideas.md の該当行のステータスを「実装済み」に更新
+5. https://example.com は実際のドメイン確定後にサイト内一括置換する
+-->

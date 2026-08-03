@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>割り勘計算 | べんりツール</title>
+<meta name="description" content="合計金額と人数を入力するだけで、一人あたりの支払い金額を端数処理込みで計算できる無料ツールです。">
+<link rel="canonical" href="https://example.com/tools/warikan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "割り勘計算",
+  "url": "https://example.com/tools/warikan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://example.com/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://example.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "割り勘計算", "item": "https://example.com/tools/warikan/"}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 割り勘計算</p>
+  <h1>割り勘計算</h1>
+  <p class="lead">合計金額と人数を入力すると、一人あたりの支払い金額を計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="total-amount">合計金額（円）</label>
+      <input type="number" id="total-amount" min="0" placeholder="例：8500">
+    </div>
+    <div class="field">
+      <label for="people-count">人数</label>
+      <input type="number" id="people-count" min="1" placeholder="例：3">
+    </div>
+    <div class="field">
+      <label for="round-unit">端数の切り上げ単位</label>
+      <select id="round-unit">
+        <option value="1">1円単位（端数なし）</option>
+        <option value="10" selected>10円単位</option>
+        <option value="100">100円単位</option>
+      </select>
+    </div>
+    <button type="button" class="btn" id="calc-btn">計算する</button>
+    <div id="warikan-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="ad-slot">広告枠（AdSense承認後に設置）</div>
+
+  <h2>計算方法について</h2>
+  <p>一人あたりの金額は「合計金額 ÷ 人数」を指定した単位で切り上げて算出します。切り上げによって発生した差額（端数の合計）は、幹事の方が多く負担する、あるいは別途調整するなど、状況に応じてご活用ください。</p>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('calc-btn').addEventListener('click', function () {
+  var resultBox = document.getElementById('warikan-result');
+  var total = parseFloat(document.getElementById('total-amount').value);
+  var people = parseInt(document.getElementById('people-count').value, 10);
+  var unit = parseInt(document.getElementById('round-unit').value, 10);
+
+  if (!total || total <= 0 || !people || people <= 0) {
+    resultBox.className = 'result-box';
+    resultBox.innerHTML = '<span class="error-text">合計金額と人数を正しく入力してください</span>';
+    return;
+  }
+
+  var perPerson = Math.ceil((total / people) / unit) * unit;
+  var totalPaid = perPerson * people;
+  var diff = totalPaid - total;
+
+  resultBox.className = 'result-box';
+  resultBox.innerHTML =
+    '<div class="big">一人あたり ' + perPerson.toLocaleString() + ' 円</div>' +
+    '<span>合計支払額：' + totalPaid.toLocaleString() + ' 円（元の合計より ' + diff.toLocaleString() + ' 円多く回収されます）</span>';
+});
+</script>
+</body>
+</html>

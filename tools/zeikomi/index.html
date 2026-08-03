@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>消費税計算（税込⇔税抜） | べんりツール</title>
+<meta name="description" content="金額と税率（8%・10%）を入力するだけで、税込価格・税抜価格を瞬時に計算できる無料ツールです。">
+<link rel="canonical" href="https://example.com/tools/zeikomi/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "消費税計算",
+  "url": "https://example.com/tools/zeikomi/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://example.com/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://example.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "消費税計算", "item": "https://example.com/tools/zeikomi/"}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 消費税計算</p>
+  <h1>消費税計算（税込⇔税抜）</h1>
+  <p class="lead">金額と税率を入力すると、税込・税抜の両方の金額を計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="zei-amount">金額（円）</label>
+      <input type="number" id="zei-amount" min="0" placeholder="例：1000">
+    </div>
+    <div class="field">
+      <label for="zei-direction">入力した金額は</label>
+      <select id="zei-direction">
+        <option value="excl">税抜金額</option>
+        <option value="incl">税込金額</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="zei-rate">税率</label>
+      <select id="zei-rate">
+        <option value="10">10%（標準税率）</option>
+        <option value="8">8%（軽減税率）</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="zei-round">端数処理</label>
+      <select id="zei-round">
+        <option value="floor">切り捨て</option>
+        <option value="round">四捨五入</option>
+        <option value="ceil">切り上げ</option>
+      </select>
+    </div>
+    <button type="button" class="btn" id="zei-calc-btn">計算する</button>
+    <div id="zei-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="ad-slot">広告枠（AdSense承認後に設置）</div>
+
+  <p class="note-box">端数処理の方法は事業者によって異なる場合があります。正式な請求書等では取引先の定める端数処理ルールをご確認ください。</p>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function applyRound(val, mode) {
+  if (mode === 'round') return Math.round(val);
+  if (mode === 'ceil') return Math.ceil(val);
+  return Math.floor(val);
+}
+
+document.getElementById('zei-calc-btn').addEventListener('click', function () {
+  var resultBox = document.getElementById('zei-result');
+  var amount = parseFloat(document.getElementById('zei-amount').value);
+  var direction = document.getElementById('zei-direction').value;
+  var rate = parseFloat(document.getElementById('zei-rate').value) / 100;
+  var roundMode = document.getElementById('zei-round').value;
+
+  if (!amount || amount < 0) {
+    resultBox.className = 'result-box';
+    resultBox.innerHTML = '<span class="error-text">金額を正しく入力してください</span>';
+    return;
+  }
+
+  var excl, incl, tax;
+  if (direction === 'excl') {
+    excl = amount;
+    incl = applyRound(amount * (1 + rate), roundMode);
+    tax = incl - excl;
+  } else {
+    incl = amount;
+    excl = applyRound(amount / (1 + rate), roundMode);
+    tax = incl - excl;
+  }
+
+  resultBox.className = 'result-box';
+  resultBox.innerHTML =
+    '<div class="big">税込：' + incl.toLocaleString() + ' 円</div>' +
+    '<span>税抜：' + excl.toLocaleString() + ' 円 ／ 消費税額：' + tax.toLocaleString() + ' 円</span>';
+});
+</script>
+</body>
+</html>

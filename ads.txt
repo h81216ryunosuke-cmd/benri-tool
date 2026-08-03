@@ -1,0 +1,4 @@
+# TODO: Google AdSense 承認後、以下の行のpub-idを実際の値に置き換えてください。
+# 承認前はこのファイルは効果を持ちません（記述形式の説明のみ）。
+# 例: google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

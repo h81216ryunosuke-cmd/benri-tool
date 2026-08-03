@@ -1,0 +1,9 @@
+{
+  "name": "benri-tool-scripts",
+  "private": true,
+  "type": "module",
+  "description": "GitHub Actions運用専用のスクリプト群。サイト本体（ルート直下）とは依存関係を分離している。",
+  "dependencies": {
+    "googleapis": "^140.0.0"
+  }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カラーコード変換（HEX/RGB/HSL） | べんりツール</title>
+<meta name="description" content="HEX・RGB・HSLのカラーコードを相互に変換し、プレビュー表示できる無料ツールです。">
+<link rel="canonical" href="https://example.com/tools/color-code/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "カラーコード変換",
+  "url": "https://example.com/tools/color-code/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://example.com/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://example.com/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "カラーコード変換", "item": "https://example.com/tools/color-code/"}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; カラーコード変換</p>
+  <h1>カラーコード変換（HEX/RGB/HSL）</h1>
+  <p class="lead">いずれか1つの形式を入力すると、他の形式に自動変換してプレビュー表示します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="color-picker">カラーピッカーから選択</label>
+      <input type="color" id="color-picker" value="#2563eb" style="height:44px; padding:4px">
+    </div>
+    <div class="field">
+      <label for="hex-input">HEX（例：#2563eb）</label>
+      <input type="text" id="hex-input" placeholder="#2563eb">
+    </div>
+    <div class="field">
+      <label for="rgb-input">RGB（例：37, 99, 235）</label>
+      <input type="text" id="rgb-input" placeholder="37, 99, 235">
+    </div>
+    <div class="field">
+      <label for="hsl-input">HSL（例：221, 83%, 53%）</label>
+      <input type="text" id="hsl-input" placeholder="221, 83%, 53%">
+    </div>
+    <div id="color-preview" style="height:80px; border-radius:8px; border:1px solid var(--color-border); background:#2563eb"></div>
+    <div id="color-error" class="error-text"></div>
+  </div>
+
+  <div class="ad-slot">広告枠（AdSense承認後に設置）</div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var hexInput = document.getElementById('hex-input');
+var rgbInput = document.getElementById('rgb-input');
+var hslInput = document.getElementById('hsl-input');
+var picker = document.getElementById('color-picker');
+var preview = document.getElementById('color-preview');
+var errorBox = document.getElementById('color-error');
+
+function hexToRgb(hex) {
+  hex = hex.replace('#', '');
+  if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
+  if (!/^[0-9a-fA-F]{6}$/.test(hex)) return null;
+  var num = parseInt(hex, 16);
+  return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+}
+
+function rgbToHex(r, g, b) {
+  return '#' + [r, g, b].map(function (v) { return v.toString(16).padStart(2, '0'); }).join('');
+}
+
+function rgbToHsl(r, g, b) {
+  r /= 255; g /= 255; b /= 255;
+  var max = Math.max(r, g, b), min = Math.min(r, g, b);
+  var h, s, l = (max + min) / 2;
+  if (max === min) {
+    h = s = 0;
+  } else {
+    var d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h /= 6;
+  }
+  return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+}
+
+function hslToRgb(h, s, l) {
+  h /= 360; s /= 100; l /= 100;
+  var r, g, b;
+  if (s === 0) {
+    r = g = b = l;
+  } else {
+    var hue2rgb = function (p, q, t) {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    };
+    var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    var p = 2 * l - q;
+    r = hue2rgb(p, q, h + 1 / 3);
+    g = hue2rgb(p, q, h);
+    b = hue2rgb(p, q, h - 1 / 3);
+  }
+  return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
+}
+
+function applyRgb(r, g, b, skip) {
+  errorBox.textContent = '';
+  var hex = rgbToHex(r, g, b);
+  var hsl = rgbToHsl(r, g, b);
+  if (skip !== 'hex') hexInput.value = hex;
+  if (skip !== 'rgb') rgbInput.value = r + ', ' + g + ', ' + b;
+  if (skip !== 'hsl') hslInput.value = hsl.h + ', ' + hsl.s + '%, ' + hsl.l + '%';
+  picker.value = hex;
+  preview.style.background = hex;
+}
+
+hexInput.addEventListener('input', function () {
+  var rgb = hexToRgb(hexInput.value);
+  if (!rgb) { errorBox.textContent = 'HEXの形式が正しくありません（例：#2563eb）'; return; }
+  applyRgb(rgb.r, rgb.g, rgb.b, 'hex');
+});
+
+rgbInput.addEventListener('input', function () {
+  var parts = rgbInput.value.split(',').map(function (v) { return parseInt(v.trim(), 10); });
+  if (parts.length !== 3 || parts.some(function (v) { return isNaN(v) || v < 0 || v > 255; })) {
+    errorBox.textContent = 'RGBの形式が正しくありません（例：37, 99, 235）';
+    return;
+  }
+  applyRgb(parts[0], parts[1], parts[2], 'rgb');
+});
+
+hslInput.addEventListener('input', function () {
+  var parts = hslInput.value.replace(/%/g, '').split(',').map(function (v) { return parseFloat(v.trim()); });
+  if (parts.length !== 3 || parts.some(isNaN)) {
+    errorBox.textContent = 'HSLの形式が正しくありません（例：221, 83%, 53%）';
+    return;
+  }
+  var rgb = hslToRgb(parts[0], parts[1], parts[2]);
+  applyRgb(rgb.r, rgb.g, rgb.b, 'hsl');
+});
+
+picker.addEventListener('input', function () {
+  var rgb = hexToRgb(picker.value);
+  applyRgb(rgb.r, rgb.g, rgb.b);
+});
+
+applyRgb(37, 99, 235);
+</script>
+</body>
+</html>

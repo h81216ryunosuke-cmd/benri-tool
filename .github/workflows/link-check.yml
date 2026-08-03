@@ -1,0 +1,35 @@
+name: Link Check
+
+on:
+  schedule:
+    - cron: "0 18 * * *" # 毎日 UTC18:00 = JST 3:00
+  workflow_dispatch: {}
+
+jobs:
+  offline-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check internal links in HTML files
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --offline
+            --exclude-mail
+            --exclude "^https://"
+            "**/*.html"
+          fail: true
+
+  live-check:
+    runs-on: ubuntu-latest
+    # SITE_URL（Repository variables）が設定されるまでスキップされる。
+    # 設定方法は README.md の「GitHub Actions用のSecrets/Variables設定」を参照。
+    if: vars.SITE_URL != ''
+    steps:
+      - name: Check that the deployed site responds
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --exclude-mail
+            ${{ vars.SITE_URL }}
+          fail: true

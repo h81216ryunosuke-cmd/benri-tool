@@ -1,0 +1,30 @@
+name: Monthly Summary Report
+
+on:
+  schedule:
+    - cron: "0 22 1 * *" # 毎月1日 UTC22:00 = JST 翌7:00
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  generate-summary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate monthly summary
+        # 外部シークレット不要。reports/search-console/ にデータがなければ
+        # 「未設定です」という内容のレポートを出力する。
+        run: node scripts/generate-monthly-summary.mjs
+
+      - name: Commit updated summary
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: monthly summary report"
+          file_pattern: "reports/monthly/*.md"
