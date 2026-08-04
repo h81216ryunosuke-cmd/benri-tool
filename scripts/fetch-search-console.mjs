@@ -3,7 +3,7 @@
 //
 // 必要な環境変数（GitHub Actions Secrets/Variablesとして設定）:
 //   GSC_SERVICE_ACCOUNT_JSON : サービスアカウントのJSON鍵（文字列そのまま）
-//   GSC_SITE_URL             : Search Consoleに登録済みのプロパティURL（例: https://example.com/）
+//   GSC_SITE_URL             : Search Consoleに登録済みのプロパティURL（例: https://benri-tool.pages.dev/）
 //
 // どちらか未設定の場合は何もせず正常終了する（README.mdのセットアップ手順を参照）。
 import { google } from "googleapis";

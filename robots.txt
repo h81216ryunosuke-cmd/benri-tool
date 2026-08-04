@@ -4,4 +4,4 @@ Disallow: /docs/
 Disallow: /scripts/
 Disallow: /reports/
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://benri-tool.pages.dev/sitemap.xml

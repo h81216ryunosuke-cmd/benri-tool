@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://example.com/</loc></url>
-  <url><loc>https://example.com/tools/</loc></url>
-  <url><loc>https://example.com/about.html</loc></url>
-  <url><loc>https://example.com/privacy.html</loc></url>
-  <url><loc>https://example.com/contact.html</loc></url>
-  <url><loc>https://example.com/tools/zip-address/</loc></url>
-  <url><loc>https://example.com/tools/wareki-seireki/</loc></url>
-  <url><loc>https://example.com/tools/warikan/</loc></url>
-  <url><loc>https://example.com/tools/zeikomi/</loc></url>
-  <url><loc>https://example.com/tools/password-generator/</loc></url>
-  <url><loc>https://example.com/tools/qr-generator/</loc></url>
-  <url><loc>https://example.com/tools/moji-count/</loc></url>
-  <url><loc>https://example.com/tools/zenkaku-hankaku/</loc></url>
-  <url><loc>https://example.com/tools/color-code/</loc></url>
-  <url><loc>https://example.com/tools/age-calculator/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/about.html</loc></url>
+  <url><loc>https://benri-tool.pages.dev/privacy.html</loc></url>
+  <url><loc>https://benri-tool.pages.dev/contact.html</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/zip-address/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/wareki-seireki/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/warikan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/zeikomi/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/password-generator/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/qr-generator/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/moji-count/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/zenkaku-hankaku/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/color-code/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/age-calculator/</loc></url>
 </urlset>

@@ -5,7 +5,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const SITE_URL = process.env.SITE_URL || "https://example.com";
+const SITE_URL = process.env.SITE_URL || "https://benri-tool.pages.dev";
 
 const staticPages = ["/", "/tools/", "/about.html", "/privacy.html", "/contact.html"];
 
