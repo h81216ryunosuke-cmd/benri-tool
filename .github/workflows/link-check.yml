@@ -17,6 +17,7 @@ jobs:
             --offline
             --exclude-mail
             --exclude "^https://"
+            --root-dir "$GITHUB_WORKSPACE"
             "**/*.html"
           fail: true
 

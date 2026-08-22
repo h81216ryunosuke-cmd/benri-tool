@@ -47,3 +47,18 @@
 - 優先度Bは競合サイトの充実度や仕様の複雑さを踏まえ、着手前に簡易なキーワード調査を推奨。
 - 優先度Cの姓名判断は、正確な画数データベースの整備コストが実装のボトルネックになるため、他の候補が一巡してから再検討する。
 - 本リストは月次レポート運用の中で「伸びているジャンルの周辺ツールを追加する」判断材料としても使う想定（プラン内Phase 3に対応）。
+
+## 競合・キーワード調査メモ（2026-08-22 夜間調査、WebSearchベース）
+
+人間が就寝中に行った簡易調査のメモ。正式なキーワードボリュームツール（Ubersuggestやahrefs等）は使用しておらず、検索結果に表示される競合サイトの顔ぶれから競合の厚さを推測したもの。次バッチ選定時の参考情報として記録する。
+
+- **#11 日数計算**：「日数計算」で検索すると PEKO STEP・ベンリスト・ツールレンジャー・ToolkitsLab・9rando.info など個人運営の同種ツールが多数上位表示される。競合はやや多いが、どれも1990〜2010年代風の古いUIも混在しており、シンプルで見やすいUIなら差別化の余地はある。（参照: [PEKO STEP](https://www.peko-step.com/tool/dayadd.html), [ツールレンジャー](https://ple-cre.jp/toolranger/day/), [ToolkitsLab](https://toolkitslab.com/tools/weekday-calc)）
+- **#17/#18 BMI計算・標準体重計算**：calculator.jp・jptools.jp・アサリツールズ・GRACE等、競合が非常に多く「定番中の定番」ジャンル。日本肥満学会基準への対応など機能面で横並び化しており、新規参入で上位表示は難しい可能性。優先度は下げても良いかもしれない（実装容易だが差別化困難）。（参照: [jptools.jp/bmi](https://jptools.jp/bmi), [アサリツールズ](https://tools.studioasari.co.jp/calc-tools/bmicalc)）
+- **#20 尺貫法単位換算 / #23 干支計算**：想定よりは競合が存在する（尺貫法: touki-kumamoto.jp, hayamihyou.net, sljfaq.org / 干支計算: calc-site.com, keisan.site）。ただし多くは古いデザインの計算サイトの一機能として埋もれており、単体の専用ページとして丁寧に作れば検索意図に応えやすい可能性はある。「低競合」と決めつけず着手前に個別キーワードを再確認したほうがよい。
+- **#25/#28 Unixタイムスタンプ変換・JSON整形**：dataegg.co.jp・konisimple.net・toolkitslab.com等、エンジニア向け定番ツールとして既に多数存在。実装は容易だが差別化ポイント（JST/UTC切替、ミリ秒自動判別など）が既に一巡している。実装優先度は「作りやすさ」より「独自の使い勝手」で決めたほうがよい。
+- **#15 退職金概算計算**：WAM（独立行政法人福祉医療機構）や大手銀行（三井住友銀行・三井住友信託銀行）、給与計算SaaS（マネーフォワード）まで参入しており競合が非常に強い。個人運営ツールでの上位表示は現実的に厳しく、優先度Bのままか、着手を見送るのが妥当と考えられる。（参照: [WAM](https://www.wam.go.jp/content/wamnet/pcpub/top/taisyokuteate/), [マネーフォワード](https://biz.moneyforward.com/payroll/basic/101588/)）
+
+### AdSense審査・収益に関する周辺調査（プラン照合用）
+
+- AdSense審査落ちの原因として「404ページ（リンク切れページ）が残っている」ことが繰り返し報告されている（複数のブログ体験談で言及）。当サイトはGitHub Actionsの日次リンクチェックで内部リンク切れを監視する設計だが、後述の通りこのチェック自体が設定ミスで機能していなかったため、優先度高く修正した（詳細は overnight_report_2026-08-22.md および link-check.yml を参照）。（参照: [副業マルチクリエーターtetsu7017](https://www.tetsu7017.com/blog/google-adsense-approval-method/), [あおいろのブログ](https://ao-tonnbo.com/googladsense)）
+- 個人開発の実用ツールサイトのAdSense実績報告（Qiita）では、月19万PV規模でも収益は月2万円程度が上限という報告があり、プラン内KPI「半年〜1年でツール20〜50個・月数千円〜1万円台」は妥当な現実的ラインと確認できた。（参照: [Qiita「個人開発WEBサービスのAdSense収益20ヶ月分を公開する」](https://qiita.com/pikachu0203/items/8241585e0b3114891615)）
