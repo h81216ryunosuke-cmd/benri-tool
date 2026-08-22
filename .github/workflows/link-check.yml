@@ -15,7 +15,6 @@ jobs:
         with:
           args: >-
             --offline
-            --exclude-mail
             --exclude "^https://"
             --root-dir "$GITHUB_WORKSPACE"
             "**/*.html"
@@ -31,6 +30,5 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
-            --exclude-mail
             ${{ vars.SITE_URL }}
           fail: true
