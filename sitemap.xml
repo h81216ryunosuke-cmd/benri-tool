@@ -10,7 +10,10 @@
   <url><loc>https://benri-tool.pages.dev/tools/base64/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/color-code/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/eto-keisan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/genkouyoushi-kansan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/hash-keisan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/hensachi-keisan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/hyoutei-heikin-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/json-format/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/kinzoku-nensu/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/moji-count/</loc></url>
@@ -22,6 +25,7 @@
   <url><loc>https://benri-tool.pages.dev/tools/unixtime-henkan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/url-encode/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/wareki-seireki/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/wariai-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/waribiki-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/warikan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/zeikomi/</loc></url>
@@ -30,4 +34,5 @@
   <url><loc>https://benri-tool.pages.dev/series/business/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/engineer/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/life/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/series/student/</loc></url>
 </urlset>

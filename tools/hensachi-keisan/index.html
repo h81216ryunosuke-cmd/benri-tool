@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>偏差値計算 | べんりツール</title>
+<meta name="description" content="クラスや模試の点数を入力するだけで、平均点・標準偏差から偏差値を無料で自動計算できるツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/hensachi-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "偏差値計算",
+  "url": "https://benri-tool.pages.dev/tools/hensachi-keisan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "偏差値計算", "item": "https://benri-tool.pages.dev/tools/hensachi-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 偏差値計算</p>
+  <h1>偏差値計算</h1>
+  <p class="lead">クラスや模試の点数を入力すると、平均点・標準偏差から自分の偏差値を計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="hensachi-scores">全員の点数（自分の点数も含めて、改行かカンマ区切りで入力）</label>
+      <textarea id="hensachi-scores" placeholder="例：65&#10;80&#10;72&#10;55&#10;90"></textarea>
+    </div>
+    <div class="field">
+      <label for="hensachi-own">自分の点数</label>
+      <input type="number" id="hensachi-own" placeholder="例：72">
+    </div>
+    <button type="button" class="btn" id="hensachi-calc-btn">偏差値を計算</button>
+    <div id="hensachi-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">学校や塾で使われる一般的な計算式（(点数－平均点)÷標準偏差×10+50）と同じ方法で算出しています。ただし母集団（学年全体かクラスのみか等）の取り方によって数値は変わります。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>偏差値はどうやって計算されますか？</summary>
+      <p>(自分の点数－平均点)÷標準偏差×10+50 という式で算出しています。平均点ちょうどなら偏差値は50になります。</p>
+    </details>
+    <details>
+      <summary>自分の点数は点数リストに含める必要がありますか？</summary>
+      <p>はい。正確な平均点・標準偏差を計算するため、自分の点数も含めた全員分の点数を入力してください。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/wariai-keisan/">
+        <div class="tool-card__title">割合（パーセント）計算</div>
+        <div class="tool-card__desc">「AはBの何%か」など3パターンの割合計算</div>
+      </a>
+      <a class="tool-card" href="/tools/hyoutei-heikin-keisan/">
+        <div class="tool-card__title">評定平均（GPA）計算</div>
+        <div class="tool-card__desc">評点と単位数から評定平均を計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hensachi-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('hensachi-result');
+  var raw = document.getElementById('hensachi-scores').value;
+  var own = parseFloat(document.getElementById('hensachi-own').value);
+  var scores = raw.split(/[\n,、]+/).map(function (s) { return parseFloat(s.trim()); }).filter(function (n) { return !isNaN(n); });
+
+  if (scores.length < 2 || isNaN(own)) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">全員の点数（2件以上）と自分の点数を入力してください</span>';
+    return;
+  }
+
+  var mean = scores.reduce(function (a, b) { return a + b; }, 0) / scores.length;
+  var variance = scores.reduce(function (a, b) { return a + Math.pow(b - mean, 2); }, 0) / scores.length;
+  var sd = Math.sqrt(variance);
+  var hensachi = sd === 0 ? 50 : (own - mean) / sd * 10 + 50;
+
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">偏差値 ' + hensachi.toFixed(1) + '</div>' +
+    '<span>平均点：' + mean.toFixed(1) + ' ／ 標準偏差：' + sd.toFixed(2) + ' ／ 人数：' + scores.length + '人</span>';
+});
+</script>
+</body>
+</html>
