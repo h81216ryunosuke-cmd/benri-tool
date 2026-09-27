@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カーバッテリー購入・交換費用比較計算 | べんりツール</title>
+<meta name="description" content="カー用品店での購入・交換、ネット購入+持ち込み交換、自分で交換の3パターンで、カーバッテリーのトータル費用を無料で比較できるツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/battery-cost-hikaku/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "カーバッテリー購入・交換費用比較計算",
+  "url": "https://benri-tool.pages.dev/tools/battery-cost-hikaku/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "カーバッテリー購入・交換費用比較計算", "item": "https://benri-tool.pages.dev/tools/battery-cost-hikaku/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; カーバッテリー購入・交換費用比較計算</p>
+  <h1>カーバッテリー購入・交換費用比較計算</h1>
+  <p class="lead">「カー用品店で購入+交換」「ネット購入+持ち込み交換」「ネット購入+自分で交換」の3パターンで、トータル費用を比較します。</p>
+
+  <div class="card">
+    <h2 style="margin-top:0">A: カー用品店で購入+交換</h2>
+    <div class="field">
+      <label for="batt-a-body">本体価格（円）</label>
+      <input type="number" id="batt-a-body" min="0" placeholder="例：12000">
+    </div>
+    <div class="field">
+      <label for="batt-a-labor">工賃（円）</label>
+      <input type="number" id="batt-a-labor" min="0" placeholder="例：800">
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h2 style="margin-top:0">B: ネット購入+持ち込み交換</h2>
+    <div class="field">
+      <label for="batt-b-body">本体価格（円）</label>
+      <input type="number" id="batt-b-body" min="0" placeholder="例：8000">
+    </div>
+    <div class="field">
+      <label for="batt-b-labor">持ち込み工賃（円）</label>
+      <input type="number" id="batt-b-labor" min="0" placeholder="例：3000">
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h2 style="margin-top:0">C: ネット購入+自分で交換</h2>
+    <div class="field">
+      <label for="batt-c-body">本体価格（円）</label>
+      <input type="number" id="batt-c-body" min="0" placeholder="例：8000">
+    </div>
+    <div class="field">
+      <label for="batt-c-disposal">廃バッテリー処分費用（円、任意）</label>
+      <input type="number" id="batt-c-disposal" min="0" placeholder="例：0" value="0">
+    </div>
+  </div>
+
+  <button type="button" class="btn" id="batt-calc-btn" style="margin-top:20px">比較する</button>
+  <div id="batt-result" class="result-box is-empty">結果はここに表示されます</div>
+
+  <p class="note-box">本ツールはご自身で入力した見積もり額を比較する目安ツールです。実際の価格は車種・バッテリーの型番・店舗・地域によって異なります。工賃の安さだけでなく、本体価格とのトータルで比較することをおすすめします。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>自分で交換する場合の注意点は？</summary>
+      <p>近年の車種、特にハイブリッド車やアイドリングストップ車では、バッテリー交換時にメモリーバックアップや端末リセットが必要な場合があります。対応の可否を事前に確認してください。</p>
+    </details>
+    <details>
+      <summary>持ち込み交換はどの店舗でもできますか？</summary>
+      <p>対応していない店舗や、対応していても通常購入時より工賃が高く設定される場合があります。事前に複数店舗へ確認することをおすすめします。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/tire-cost-gaisan/">
+        <div class="tool-card__title">タイヤ交換費用概算計算</div>
+        <div class="tool-card__desc">タイヤ本体価格・工賃・廃棄費用から合計を試算</div>
+      </a>
+      <a class="tool-card" href="/tools/nenpi-keisan/">
+        <div class="tool-card__title">燃費・燃料費計算</div>
+        <div class="tool-card__desc">距離・燃費・ガソリン価格から燃料費を計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<!-- 姉妹サイト(整備士目線の車メンテナンスメディア)が公開され次第、
+     関連記事へのリンクをここに追加する想定 -->
+
+<script>
+document.getElementById('batt-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('batt-result');
+  var aBody = parseFloat(document.getElementById('batt-a-body').value);
+  var aLabor = parseFloat(document.getElementById('batt-a-labor').value);
+  var bBody = parseFloat(document.getElementById('batt-b-body').value);
+  var bLabor = parseFloat(document.getElementById('batt-b-labor').value);
+  var cBody = parseFloat(document.getElementById('batt-c-body').value);
+  var cDisposal = parseFloat(document.getElementById('batt-c-disposal').value) || 0;
+
+  var options = [
+    { label: 'A: カー用品店で購入+交換', total: aBody + aLabor, valid: !isNaN(aBody) && !isNaN(aLabor) },
+    { label: 'B: ネット購入+持ち込み交換', total: bBody + bLabor, valid: !isNaN(bBody) && !isNaN(bLabor) },
+    { label: 'C: ネット購入+自分で交換', total: cBody + cDisposal, valid: !isNaN(cBody) }
+  ].filter(function (o) { return o.valid; });
+
+  if (options.length === 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">少なくとも1つのパターンの金額を入力してください</span>';
+    return;
+  }
+
+  options.sort(function (a, b) { return a.total - b.total; });
+  var cheapest = options[0].total;
+
+  var rows = options.map(function (o) {
+    var isCheapest = o.total === cheapest;
+    return '<tr><th>' + o.label + (isCheapest ? '（最安）' : '') + '</th><td>' + o.total.toLocaleString() + ' 円</td></tr>';
+  }).join('');
+
+  box.className = 'result-box';
+  box.innerHTML = '<table class="simple-table">' + rows + '</table>';
+});
+</script>
+</body>
+</html>

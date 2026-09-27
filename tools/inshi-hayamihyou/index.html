@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>収入印紙の金額早見表（領収書） | べんりツール</title>
+<meta name="description" content="領収書の記載金額を入力するだけで、必要な収入印紙の金額が分かる無料ツールです。5万円未満は非課税など、全区分の早見表も掲載。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/inshi-hayamihyou/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "収入印紙の金額早見表",
+  "url": "https://benri-tool.pages.dev/tools/inshi-hayamihyou/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "収入印紙の金額早見表", "item": "https://benri-tool.pages.dev/tools/inshi-hayamihyou/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 収入印紙の金額早見表</p>
+  <h1>収入印紙の金額早見表（領収書）</h1>
+  <p class="lead">領収書の記載金額を入力すると、必要な収入印紙の金額が分かります。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="inshi-amount">領収書の記載金額（円）</label>
+      <input type="number" id="inshi-amount" min="0" placeholder="例：150000">
+    </div>
+    <button type="button" class="btn" id="inshi-calc-btn">印紙税額を調べる</button>
+    <div id="inshi-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <h2>領収書（売上代金の受取書）の印紙税額一覧表</h2>
+  <table class="simple-table">
+    <thead><tr><th>記載金額</th><th>印紙税額</th></tr></thead>
+    <tbody>
+      <tr><td>5万円未満</td><td>非課税</td></tr>
+      <tr><td>5万円以上100万円以下</td><td>200円</td></tr>
+      <tr><td>100万円超200万円以下</td><td>400円</td></tr>
+      <tr><td>200万円超300万円以下</td><td>600円</td></tr>
+      <tr><td>300万円超500万円以下</td><td>1,000円</td></tr>
+      <tr><td>500万円超1,000万円以下</td><td>2,000円</td></tr>
+      <tr><td>1,000万円超2,000万円以下</td><td>4,000円</td></tr>
+      <tr><td>2,000万円超3,000万円以下</td><td>6,000円</td></tr>
+      <tr><td>3,000万円超5,000万円以下</td><td>10,000円</td></tr>
+      <tr><td>5,000万円超1億円以下</td><td>20,000円</td></tr>
+      <tr><td>1億円超2億円以下</td><td>40,000円</td></tr>
+      <tr><td>2億円超3億円以下</td><td>60,000円</td></tr>
+      <tr><td>3億円超5億円以下</td><td>100,000円</td></tr>
+      <tr><td>5億円超10億円以下</td><td>150,000円</td></tr>
+      <tr><td>10億円超</td><td>200,000円</td></tr>
+      <tr><td>金額の記載のないもの</td><td>200円</td></tr>
+    </tbody>
+  </table>
+
+  <p class="note-box">本ツールは売上代金に係る金銭の受取書（領収書、第17号の1文書）を対象にした早見表です。契約書など他の種類の文書は税額が異なります。領収書に消費税額等が区分記載されている場合は、税抜金額で印紙税の課否を判定できます。詳しくは国税庁の印紙税額一覧表をご確認ください。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>金額の記載がない領収書はどうなりますか？</summary>
+      <p>記載金額のない領収書は一律200円の印紙税がかかります。</p>
+    </details>
+    <details>
+      <summary>クレジットカード払いの領収書にも印紙は必要ですか？</summary>
+      <p>いいえ。クレジットカード払いであることが明記された受取書は、金銭の受領事実がないため印紙税の対象外です。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/shimekiribi-keisan/">
+        <div class="tool-card__title">締切日・納期計算（営業日ベース）</div>
+        <div class="tool-card__desc">土日を除いた営業日ベースで納期を計算</div>
+      </a>
+      <a class="tool-card" href="/tools/zeikomi/">
+        <div class="tool-card__title">消費税計算（税込⇔税抜）</div>
+        <div class="tool-card__desc">8%・10%を切替えて瞬時に計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var TABLE = [
+  { min: 0, max: 49999, tax: 0, label: '5万円未満（非課税）' },
+  { min: 50000, max: 1000000, tax: 200, label: '5万円以上100万円以下' },
+  { min: 1000001, max: 2000000, tax: 400, label: '100万円超200万円以下' },
+  { min: 2000001, max: 3000000, tax: 600, label: '200万円超300万円以下' },
+  { min: 3000001, max: 5000000, tax: 1000, label: '300万円超500万円以下' },
+  { min: 5000001, max: 10000000, tax: 2000, label: '500万円超1,000万円以下' },
+  { min: 10000001, max: 20000000, tax: 4000, label: '1,000万円超2,000万円以下' },
+  { min: 20000001, max: 30000000, tax: 6000, label: '2,000万円超3,000万円以下' },
+  { min: 30000001, max: 50000000, tax: 10000, label: '3,000万円超5,000万円以下' },
+  { min: 50000001, max: 100000000, tax: 20000, label: '5,000万円超1億円以下' },
+  { min: 100000001, max: 200000000, tax: 40000, label: '1億円超2億円以下' },
+  { min: 200000001, max: 300000000, tax: 60000, label: '2億円超3億円以下' },
+  { min: 300000001, max: 500000000, tax: 100000, label: '3億円超5億円以下' },
+  { min: 500000001, max: 1000000000, tax: 150000, label: '5億円超10億円以下' },
+  { min: 1000000001, max: Infinity, tax: 200000, label: '10億円超' }
+];
+
+document.getElementById('inshi-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('inshi-result');
+  var amount = parseFloat(document.getElementById('inshi-amount').value);
+
+  if (isNaN(amount) || amount < 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">領収書の記載金額を入力してください</span>';
+    return;
+  }
+
+  var bracket = TABLE.find(function (t) { return amount >= t.min && amount <= t.max; });
+
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + (bracket.tax === 0 ? '非課税（印紙不要）' : '印紙税額：' + bracket.tax.toLocaleString() + ' 円') + '</div>' +
+    '<span>区分：' + bracket.label + '</span>';
+});
+</script>
+</body>
+</html>

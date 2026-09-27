@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>車検費用概算計算 | べんりツール</title>
+<meta name="description" content="車種区分・経過年数を選ぶだけで、自賠責保険料・自動車重量税など車検の法定費用の目安を無料で計算できるツールです。2026年11月の自賠責保険料改定に対応。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/shaken-cost-gaisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "車検費用概算計算",
+  "url": "https://benri-tool.pages.dev/tools/shaken-cost-gaisan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "車検費用概算計算", "item": "https://benri-tool.pages.dev/tools/shaken-cost-gaisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 車検費用概算計算</p>
+  <h1>車検費用概算計算</h1>
+  <p class="lead">車種区分と経過年数を選ぶと、自賠責保険料・自動車重量税など「法定費用」の目安を計算します。整備費用を入力すれば、車検費用全体の目安も分かります。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="shaken-date">車検予定日</label>
+      <select id="shaken-date">
+        <option value="before">2026年10月31日まで</option>
+        <option value="after">2026年11月1日以降</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="shaken-category">車種区分</label>
+      <select id="shaken-category">
+        <option value="kei">軽自動車</option>
+        <option value="w1">普通車（〜1t）</option>
+        <option value="w1_5">普通車（1t超〜1.5t）</option>
+        <option value="w2">普通車（1.5t超〜2t）</option>
+        <option value="w2_5">普通車（2t超〜2.5t）</option>
+        <option value="w3">普通車（2.5t超〜3t）</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="shaken-age">新規登録からの経過年数</label>
+      <select id="shaken-age">
+        <option value="under13">13年未満</option>
+        <option value="13to18">13年以上18年未満</option>
+        <option value="over18">18年以上</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="shaken-seibi">整備費用・車検基本料金（円、任意）</label>
+      <input type="number" id="shaken-seibi" min="0" placeholder="例：30000" value="0">
+    </div>
+    <button type="button" class="btn" id="shaken-calc-btn">概算を計算</button>
+    <div id="shaken-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">本ツールの金額は2026年9月時点の一般的な自賠責保険料・自動車重量税率を基にした概算です（エコカー減税対象車は含みません）。印紙代（検査手数料）は依頼先（ディーラー・民間車検場・ユーザー車検）によって異なるため、約1,800円を仮の目安として計算しています。正確な金額は依頼先の見積もりで必ずご確認ください。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>2026年11月に自賠責保険料が変わるのはなぜですか？</summary>
+      <p>2026年11月1日以降に始まる契約から、自賠責保険の基準料率が改定されるためです（自家用乗用車24ヶ月契約で17,650円→18,560円）。車検予定日に応じて選択してください。</p>
+    </details>
+    <details>
+      <summary>重量税はどうやって決まりますか？</summary>
+      <p>登録車（普通車）は車両重量0.5トンごとに税額が決まり、新規登録から13年・18年経過するとさらに税率が上がります。軽自動車は重量に関わらずほぼ定額です。エコカー減税の対象車は本ツールの金額より安くなる場合があります。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/nenpi-keisan/">
+        <div class="tool-card__title">燃費・燃料費計算</div>
+        <div class="tool-card__desc">距離・燃費・ガソリン価格から燃料費を計算</div>
+      </a>
+      <a class="tool-card" href="/tools/battery-cost-hikaku/">
+        <div class="tool-card__title">カーバッテリー購入・交換費用比較計算</div>
+        <div class="tool-card__desc">購入・交換方法別にトータル費用を比較</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<!-- 姉妹サイト(整備士目線の車検・支払い方法解説記事)が公開され次第、
+     関連記事へのリンクをここに追加する想定 -->
+
+<script>
+var WEIGHT_UNITS = { w1: 2, w1_5: 3, w2: 4, w2_5: 5, w3: 6 };
+var AGE_RATE_PER_UNIT = { under13: 8200, '13to18': 11400, over18: 12600 };
+var KEI_JURYOZEI = 6600;
+var INSHI_DAI = 1800;
+
+document.getElementById('shaken-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('shaken-result');
+  var dateKey = document.getElementById('shaken-date').value;
+  var category = document.getElementById('shaken-category').value;
+  var age = document.getElementById('shaken-age').value;
+  var seibi = parseFloat(document.getElementById('shaken-seibi').value) || 0;
+
+  var jibaiseki = dateKey === 'before' ? 17650 : 18560;
+  var juryozei;
+  if (category === 'kei') {
+    juryozei = KEI_JURYOZEI;
+  } else {
+    juryozei = WEIGHT_UNITS[category] * AGE_RATE_PER_UNIT[age];
+  }
+
+  var total = jibaiseki + juryozei + INSHI_DAI + seibi;
+
+  var rows =
+    '<tr><th>自賠責保険料（24ヶ月）</th><td>' + jibaiseki.toLocaleString() + ' 円</td></tr>' +
+    '<tr><th>自動車重量税（2年）</th><td>' + juryozei.toLocaleString() + ' 円</td></tr>' +
+    '<tr><th>印紙代（検査手数料の目安）</th><td>' + INSHI_DAI.toLocaleString() + ' 円</td></tr>' +
+    '<tr><th>整備費用・車検基本料金</th><td>' + seibi.toLocaleString() + ' 円</td></tr>';
+
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">合計目安：約 ' + total.toLocaleString() + ' 円</div>' +
+    '<table class="simple-table" style="margin-top:14px">' + rows + '</table>';
+});
+</script>
+</body>
+</html>

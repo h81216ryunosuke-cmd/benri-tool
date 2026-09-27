@@ -8,6 +8,7 @@
   <url><loc>https://benri-tool.pages.dev/contact.html</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/age-calculator/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/base64/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/battery-cost-hikaku/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/chintai-shokihiyou-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/color-code/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/eto-keisan/</loc></url>
@@ -19,12 +20,14 @@
   <url><loc>https://benri-tool.pages.dev/tools/hensachi-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/hitorigurashi-seikatsuhi-mokuyasu/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/hyoutei-heikin-keisan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/inshi-hayamihyou/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/json-format/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/kaji-anbun-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/kinzoku-nensu/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/koubai-kakudo-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/moji-count/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/nagasa-tan-i-henkan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/nenpi-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/nenshu-no-kabe-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/nissu-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/password-generator/</loc></url>
@@ -34,8 +37,11 @@
   <url><loc>https://benri-tool.pages.dev/tools/qr-generator/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/ryori-keiryo/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/seikatsuhi-yosan-keisan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/shaken-cost-gaisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/shakkanho-henkan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/shimekiribi-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/slide-hiritsu-hayamihyou/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/tire-cost-gaisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/unixtime-henkan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/url-encode/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/wareki-seireki/</loc></url>
@@ -46,6 +52,7 @@
   <url><loc>https://benri-tool.pages.dev/tools/zenkaku-hankaku/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/zip-address/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/business/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/series/car/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/engineer/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/freelance/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/household/</loc></url>

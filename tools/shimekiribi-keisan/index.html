@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>締切日・納期計算（営業日ベース） | べんりツール</title>
+<meta name="description" content="基準日から指定した営業日数後の日付や、2つの日付の間の営業日数を無料で計算できるツールです（土日を除く）。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/shimekiribi-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "締切日・納期計算（営業日ベース）",
+  "url": "https://benri-tool.pages.dev/tools/shimekiribi-keisan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "締切日・納期計算（営業日ベース）", "item": "https://benri-tool.pages.dev/tools/shimekiribi-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 締切日・納期計算（営業日ベース）</p>
+  <h1>締切日・納期計算（営業日ベース）</h1>
+  <p class="lead">土日を除いた営業日ベースで、納期の日付や2つの日付の間の営業日数を計算します。</p>
+
+  <div class="card">
+    <h2 style="margin-top:0">基準日からN営業日後の日付</h2>
+    <div class="field">
+      <label for="shimekiri-base">基準日</label>
+      <input type="date" id="shimekiri-base" min="1868-01-01" max="2099-12-31">
+    </div>
+    <div class="field">
+      <label for="shimekiri-days">営業日数</label>
+      <input type="number" id="shimekiri-days" min="1" placeholder="例：5">
+    </div>
+    <button type="button" class="btn" id="shimekiri-calc-btn">日付を計算</button>
+    <div id="shimekiri-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h2 style="margin-top:0">2つの日付の間の営業日数</h2>
+    <div class="field">
+      <label for="shimekiri-start">開始日</label>
+      <input type="date" id="shimekiri-start" min="1868-01-01" max="2099-12-31">
+    </div>
+    <div class="field">
+      <label for="shimekiri-end">終了日</label>
+      <input type="date" id="shimekiri-end" min="1868-01-01" max="2099-12-31">
+    </div>
+    <button type="button" class="btn" id="shimekiri-count-btn">営業日数を計算</button>
+    <div id="shimekiri-count-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">本ツールは土曜・日曜を除いた営業日数で計算しています。祝日は考慮していないため、祝日を除いた正確な納期が必要な場合は、カレンダーと照らし合わせてご確認ください。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>祝日は考慮されますか？</summary>
+      <p>いいえ、本ツールは土日のみを除いた営業日数で計算しています。祝日を除いた正確な納期を計算したい場合は、カレンダーと照らし合わせてご確認ください。</p>
+    </details>
+    <details>
+      <summary>土曜日は営業日に含まれますか？</summary>
+      <p>本ツールでは土曜・日曜をどちらも非営業日として扱っています。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/nissu-keisan/">
+        <div class="tool-card__title">日数計算</div>
+        <div class="tool-card__desc">2つの日付の間の日数や、N日後の日付を計算</div>
+      </a>
+      <a class="tool-card" href="/tools/inshi-hayamihyou/">
+        <div class="tool-card__title">収入印紙の金額早見表</div>
+        <div class="tool-card__desc">領収書の記載金額から印紙税額を計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function parseD(id) {
+  var val = document.getElementById(id).value;
+  if (!val) return null;
+  var p = val.split('-').map(Number);
+  if (p[0] < 1868 || p[0] > 2099) return 'invalid';
+  return new Date(p[0], p[1] - 1, p[2]);
+}
+
+function isWeekend(date) {
+  var d = date.getDay();
+  return d === 0 || d === 6;
+}
+
+function addBusinessDays(startDate, days) {
+  var result = new Date(startDate);
+  var added = 0;
+  while (added < days) {
+    result.setDate(result.getDate() + 1);
+    if (!isWeekend(result)) added++;
+  }
+  return result;
+}
+
+function countBusinessDays(start, end) {
+  var count = 0;
+  var cur = new Date(start);
+  var dir = end >= start ? 1 : -1;
+  while (cur.getTime() !== end.getTime()) {
+    cur.setDate(cur.getDate() + dir);
+    if (!isWeekend(cur)) count++;
+  }
+  return count * dir;
+}
+
+document.getElementById('shimekiri-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('shimekiri-result');
+  var base = parseD('shimekiri-base');
+  var days = parseInt(document.getElementById('shimekiri-days').value, 10);
+
+  if (base === 'invalid') {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">日付は西暦1868〜2099年の範囲で入力してください</span>';
+    return;
+  }
+  if (!base || !days || days < 1) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">基準日と営業日数（1以上）を入力してください</span>';
+    return;
+  }
+
+  var result = addBusinessDays(base, days);
+  var weekday = ['日', '月', '火', '水', '木', '金', '土'][result.getDay()];
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + result.getFullYear() + '年' + (result.getMonth() + 1) + '月' + result.getDate() + '日（' + weekday + '）</div>';
+});
+
+document.getElementById('shimekiri-count-btn').addEventListener('click', function () {
+  var box = document.getElementById('shimekiri-count-result');
+  var start = parseD('shimekiri-start');
+  var end = parseD('shimekiri-end');
+
+  if (start === 'invalid' || end === 'invalid') {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">日付は西暦1868〜2099年の範囲で入力してください</span>';
+    return;
+  }
+  if (!start || !end) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">開始日と終了日を入力してください</span>';
+    return;
+  }
+
+  var count = countBusinessDays(start, end);
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + Math.abs(count) + ' 営業日</div>' +
+    '<span>' + (count >= 0 ? '終了日は開始日の' + count + '営業日後です' : '終了日は開始日の' + Math.abs(count) + '営業日前です') + '</span>';
+});
+</script>
+</body>
+</html>

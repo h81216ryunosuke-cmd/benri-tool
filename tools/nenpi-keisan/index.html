@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>燃費・燃料費計算 | べんりツール</title>
+<meta name="description" content="走行距離・燃費・ガソリン価格から燃料費を計算。満タン時の航続距離も無料で計算できるツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/nenpi-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "燃費・燃料費計算",
+  "url": "https://benri-tool.pages.dev/tools/nenpi-keisan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "燃費・燃料費計算", "item": "https://benri-tool.pages.dev/tools/nenpi-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 燃費・燃料費計算</p>
+  <h1>燃費・燃料費計算</h1>
+  <p class="lead">走行距離・燃費・ガソリン価格から、必要な燃料費を計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="nenpi-distance">走行距離（km）</label>
+      <input type="number" id="nenpi-distance" min="0" step="any" placeholder="例：300">
+    </div>
+    <div class="field">
+      <label for="nenpi-rate">燃費（km/L）</label>
+      <input type="number" id="nenpi-rate" min="0.1" step="any" placeholder="例：15">
+    </div>
+    <div class="field">
+      <label for="nenpi-price">ガソリン価格（円/L）</label>
+      <input type="number" id="nenpi-price" min="0" step="any" placeholder="例：175">
+    </div>
+    <button type="button" class="btn" id="nenpi-calc-btn">燃料費を計算</button>
+    <div id="nenpi-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h2 style="margin-top:0">満タン時の航続距離を計算</h2>
+    <div class="field">
+      <label for="nenpi-tank">燃料タンク容量（L）</label>
+      <input type="number" id="nenpi-tank" min="0" step="any" placeholder="例：50">
+    </div>
+    <div class="field">
+      <label for="nenpi-rate2">燃費（km/L）</label>
+      <input type="number" id="nenpi-rate2" min="0.1" step="any" placeholder="例：15">
+    </div>
+    <button type="button" class="btn" id="nenpi-range-btn">航続距離を計算</button>
+    <div id="nenpi-range-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">燃費は取扱説明書のカタログ燃費（WLTCモード等）のほか、「走行距離÷給油量」で算出した実燃費を使うと、より実際に近い燃料費が計算できます。高速道路・渋滞の有無など走行環境によって実際の燃費は変動します。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>燃費はどこで確認できますか？</summary>
+      <p>車の取扱説明書に記載のカタログ燃費のほか、給油の度に「走行距離÷給油量」で実燃費を計算して使うのがより実用的です。</p>
+    </details>
+    <details>
+      <summary>高速道路と一般道で燃費は変わりますか？</summary>
+      <p>はい、速度域や渋滞の有無で変わります。正確な燃料費を知りたい場合は、実際の走行環境に近い実燃費を使うことをおすすめします。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/shaken-cost-gaisan/">
+        <div class="tool-card__title">車検費用概算計算</div>
+        <div class="tool-card__desc">法定費用+整備費用から車検費用を概算</div>
+      </a>
+      <a class="tool-card" href="/tools/tire-cost-gaisan/">
+        <div class="tool-card__title">タイヤ交換費用概算計算</div>
+        <div class="tool-card__desc">タイヤ本体価格・工賃・廃棄費用から合計を試算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('nenpi-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('nenpi-result');
+  var distance = parseFloat(document.getElementById('nenpi-distance').value);
+  var rate = parseFloat(document.getElementById('nenpi-rate').value);
+  var price = parseFloat(document.getElementById('nenpi-price').value);
+
+  if (isNaN(distance) || isNaN(rate) || rate <= 0 || isNaN(price)) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">走行距離・燃費・ガソリン価格を入力してください</span>';
+    return;
+  }
+
+  var fuel = distance / rate;
+  var cost = fuel * price;
+
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">燃料費：約 ' + Math.round(cost).toLocaleString() + ' 円</div>' +
+    '<span>必要な燃料：約 ' + fuel.toFixed(1) + ' L</span>';
+});
+
+document.getElementById('nenpi-range-btn').addEventListener('click', function () {
+  var box = document.getElementById('nenpi-range-result');
+  var tank = parseFloat(document.getElementById('nenpi-tank').value);
+  var rate = parseFloat(document.getElementById('nenpi-rate2').value);
+
+  if (isNaN(tank) || tank <= 0 || isNaN(rate) || rate <= 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">タンク容量と燃費を入力してください</span>';
+    return;
+  }
+
+  var range = tank * rate;
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">航続距離：約 ' + Math.round(range).toLocaleString() + ' km</div>';
+});
+</script>
+</body>
+</html>
