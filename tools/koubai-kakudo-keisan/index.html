@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>勾配・角度計算 | べんりツール</title>
+<meta name="description" content="寸勾配・角度（度）・パーセント勾配を相互に変換できる、屋根工事や現場作業向けの無料計算ツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/koubai-kakudo-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "勾配・角度計算",
+  "url": "https://benri-tool.pages.dev/tools/koubai-kakudo-keisan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "勾配・角度計算", "item": "https://benri-tool.pages.dev/tools/koubai-kakudo-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 勾配・角度計算</p>
+  <h1>勾配・角度計算</h1>
+  <p class="lead">寸勾配・角度（度）・パーセント勾配のどれか1つに入力すると、残り2つも自動で計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="koubai-sun">寸勾配（10寸あたりの寸数、例：4寸勾配なら4）</label>
+      <input type="number" id="koubai-sun" step="any" placeholder="例：4">
+    </div>
+    <div class="field">
+      <label for="koubai-percent">パーセント勾配（%）</label>
+      <input type="number" id="koubai-percent" step="any" placeholder="例：40">
+    </div>
+    <div class="field">
+      <label for="koubai-degree">角度（度）</label>
+      <input type="number" id="koubai-degree" step="any" placeholder="例：21.8">
+    </div>
+  </div>
+
+  <p class="note-box">寸勾配は「水平方向10寸に対して垂直方向に何寸上がるか」を表す、日本の屋根勾配の伝統的な表し方です。パーセント勾配は水平距離に対する垂直距離の割合（rise÷run×100）、角度は水平面からの傾きです。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>「4寸勾配」とはどういう意味ですか？</summary>
+      <p>水平方向に10進んだときに、垂直方向に4上がる勾配のことです。角度に換算すると約21.8度になります。</p>
+    </details>
+    <details>
+      <summary>パーセント勾配と角度はどう違いますか？</summary>
+      <p>パーセント勾配は「垂直距離÷水平距離×100」で表す割合です。角度（度）は三角関数（tanの逆関数）で求めた、水平面からの実際の傾きの角度です。同じ勾配でもパーセント表記の数値と角度の数値は一致しない点にご注意ください（例：100%勾配は45度）。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/nagasa-tan-i-henkan/">
+        <div class="tool-card__title">長さ単位変換（インチ・尺・寸・分）</div>
+        <div class="tool-card__desc">mm・cm・インチ・尺・寸・分を相互に変換</div>
+      </a>
+      <a class="tool-card" href="/tools/shakkanho-henkan/">
+        <div class="tool-card__title">尺貫法単位換算（坪・畳・尺）</div>
+        <div class="tool-card__desc">坪・畳・尺をメートル法に変換</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var UNITS = [
+  { id: 'koubai-sun', toRatio: function (v) { return v / 10; }, fromRatio: function (r) { return r * 10; } },
+  { id: 'koubai-percent', toRatio: function (v) { return v / 100; }, fromRatio: function (r) { return r * 100; } },
+  { id: 'koubai-degree', toRatio: function (v) { return Math.tan(v * Math.PI / 180); }, fromRatio: function (r) { return Math.atan(r) * 180 / Math.PI; } }
+];
+
+UNITS.forEach(function (unit) {
+  var el = document.getElementById(unit.id);
+  el.addEventListener('input', function () {
+    if (el.value === '') {
+      UNITS.forEach(function (other) {
+        if (other.id !== unit.id) document.getElementById(other.id).value = '';
+      });
+      return;
+    }
+    var v = parseFloat(el.value);
+    if (isNaN(v)) return;
+    var ratio = unit.toRatio(v);
+    UNITS.forEach(function (other) {
+      if (other.id === unit.id) return;
+      document.getElementById(other.id).value = Math.round(other.fromRatio(ratio) * 100) / 100;
+    });
+  });
+});
+</script>
+</body>
+</html>

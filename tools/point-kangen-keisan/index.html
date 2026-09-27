@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ポイント還元額計算 | べんりツール</title>
+<meta name="description" content="購入金額と還元率から獲得ポイント数・実質支払額を計算。目標ポイントに必要な購入金額も逆算できる無料ツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/point-kangen-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ポイント還元額計算",
+  "url": "https://benri-tool.pages.dev/tools/point-kangen-keisan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "ポイント還元額計算", "item": "https://benri-tool.pages.dev/tools/point-kangen-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; ポイント還元額計算</p>
+  <h1>ポイント還元額計算</h1>
+  <p class="lead">購入金額と還元率から、獲得できるポイント数と実質支払額を計算します。</p>
+
+  <div class="card">
+    <h2 style="margin-top:0">還元ポイント数を計算</h2>
+    <div class="field">
+      <label for="pt-amount">購入金額（円）</label>
+      <input type="number" id="pt-amount" min="0" placeholder="例：5000">
+    </div>
+    <div class="field">
+      <label for="pt-rate">還元率（%）</label>
+      <input type="number" id="pt-rate" min="0" step="0.1" placeholder="例：5">
+    </div>
+    <button type="button" class="btn" id="pt-calc-btn">計算する</button>
+    <div id="pt-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h2 style="margin-top:0">目標ポイントに必要な購入金額を逆算</h2>
+    <div class="field">
+      <label for="pt-target">目標ポイント数</label>
+      <input type="number" id="pt-target" min="0" placeholder="例：1000">
+    </div>
+    <div class="field">
+      <label for="pt-rate2">還元率（%）</label>
+      <input type="number" id="pt-rate2" min="0" step="0.1" placeholder="例：5">
+    </div>
+    <button type="button" class="btn" id="pt-reverse-btn">必要な購入金額を計算</button>
+    <div id="pt-reverse-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">多くの共通ポイント・クレジットカードポイントで採用されている「1ポイント＝1円」を前提に計算しています。マイル等、1ポイントの価値が異なるサービスの場合は目安が変わります。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>1ポイント＝1円で計算されていますか？</summary>
+      <p>はい、多くの共通ポイント・クレジットカードポイントで採用されている「1ポイント＝1円」を前提に計算しています。1ポイントの価値が異なるサービス（マイル等）の場合は目安が変わりますのでご注意ください。</p>
+    </details>
+    <details>
+      <summary>複数のポイント還元（クレジットカード＋店舗ポイント等）は合算できますか？</summary>
+      <p>還元率を合算した数値（例：カード1%＋店舗3%＝4%）を入力いただければ、合計の還元額を計算できます。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/waribiki-keisan/">
+        <div class="tool-card__title">割引計算</div>
+        <div class="tool-card__desc">割引後価格・割引率を相互に計算</div>
+      </a>
+      <a class="tool-card" href="/tools/seikatsuhi-yosan-keisan/">
+        <div class="tool-card__title">生活費予算計算</div>
+        <div class="tool-card__desc">手取り月収から生活費の配分目安を計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('pt-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('pt-result');
+  var amount = parseFloat(document.getElementById('pt-amount').value);
+  var rate = parseFloat(document.getElementById('pt-rate').value);
+
+  if (isNaN(amount) || isNaN(rate) || amount < 0 || rate < 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">購入金額と還元率を入力してください</span>';
+    return;
+  }
+
+  var points = Math.floor(amount * rate / 100);
+  var actual = amount - points;
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + points.toLocaleString() + ' ポイント</div>' +
+    '<span>実質支払額：' + actual.toLocaleString() + ' 円</span>';
+});
+
+document.getElementById('pt-reverse-btn').addEventListener('click', function () {
+  var box = document.getElementById('pt-reverse-result');
+  var target = parseFloat(document.getElementById('pt-target').value);
+  var rate = parseFloat(document.getElementById('pt-rate2').value);
+
+  if (isNaN(target) || isNaN(rate) || rate <= 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">目標ポイント数と還元率（0より大きい値）を入力してください</span>';
+    return;
+  }
+
+  var needed = Math.ceil(target / rate * 100);
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + needed.toLocaleString() + ' 円</div>';
+});
+</script>
+</body>
+</html>

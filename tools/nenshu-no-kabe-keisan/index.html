@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>年収の壁シミュレーター | べんりツール</title>
+<meta name="description" content="年収を入力するだけで、住民税・社会保険・所得税・配偶者控除の各しきい値（年収の壁）を超えているかどうかが一覧で分かる無料ツールです。2026年時点の制度改正を反映。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/nenshu-no-kabe-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "年収の壁シミュレーター",
+  "url": "https://benri-tool.pages.dev/tools/nenshu-no-kabe-keisan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "年収の壁シミュレーター", "item": "https://benri-tool.pages.dev/tools/nenshu-no-kabe-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 年収の壁シミュレーター</p>
+  <h1>年収の壁シミュレーター</h1>
+  <p class="lead">年収を入力すると、税金・社会保険の各しきい値（年収の壁）を超えているかどうかが一覧で分かります。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="kabe-income">年収（万円）</label>
+      <input type="number" id="kabe-income" min="0" placeholder="例：120">
+    </div>
+    <div class="checkbox-row">
+      <input type="checkbox" id="kabe-young">
+      <label for="kabe-young">19歳以上23歳未満の子など、特定の親族を扶養している</label>
+    </div>
+    <div class="checkbox-row">
+      <input type="checkbox" id="kabe-senior">
+      <label for="kabe-senior">60歳以上、または障害厚生年金を受給できる程度の障害がある</label>
+    </div>
+    <button type="button" class="btn" id="kabe-calc-btn">チェックする</button>
+    <div id="kabe-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">本ツールの金額は2026年9月時点で公表されている制度改正の情報を基にした目安です。税制・社会保険の制度は今後も変更される可能性があるため、最終的な判断は国税庁・日本年金機構・勤務先の担当窓口で必ずご確認ください。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>ここに載っている金額はいつの情報ですか？</summary>
+      <p>2026年9月時点で公表されている制度改正の情報を基にしています。税制・社会保険の制度は今後も変更される可能性があるため、最終判断は国税庁・日本年金機構・勤務先の担当窓口で必ずご確認ください。</p>
+    </details>
+    <details>
+      <summary>130万円の壁が「労働契約書ベース」というのはどういう意味ですか？</summary>
+      <p>2026年4月以降、社会保険の扶養判定は実際の年収実績だけでなく、雇用契約上の見込み収入（契約書の内容）も考慮されるようになりました。契約内容によっては、年収が130万円を下回っていても社会保険の加入対象になる場合があります。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/seikatsuhi-yosan-keisan/">
+        <div class="tool-card__title">生活費予算計算</div>
+        <div class="tool-card__desc">手取り月収から生活費の配分目安を計算</div>
+      </a>
+      <a class="tool-card" href="/tools/furusato-jougen-mokuyasu/">
+        <div class="tool-card__title">ふるさと納税上限目安計算</div>
+        <div class="tool-card__desc">年収と家族構成から控除上限の目安を計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var THRESHOLDS = [
+  { label: '住民税（目安）', value: 100, note: '自治体により93万〜100万円で差があります' },
+  { label: '106万円の壁（社会保険の賃金要件）', value: 106, note: '2026年10月に撤廃予定です' },
+  { label: '130万円の壁（社会保険の扶養）', value: 130, note: '2026年4月から労働契約書ベースの判定に変更されており、年収だけでは正確に判定できない場合があります' },
+  { label: '169万円の壁（配偶者特別控除が満額になる上限）', value: 169, note: '' },
+  { label: '178万円の壁（所得税）', value: 178, note: '2026年分の所得税から適用。給与への反映は2027年1月からで、2026年分は年末調整で精算されます' }
+];
+
+document.getElementById('kabe-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('kabe-result');
+  var income = parseFloat(document.getElementById('kabe-income').value);
+  var young = document.getElementById('kabe-young').checked;
+  var senior = document.getElementById('kabe-senior').checked;
+
+  if (isNaN(income) || income < 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">年収（万円）を入力してください</span>';
+    return;
+  }
+
+  var list = THRESHOLDS.slice();
+  if (young) list.push({ label: '150万円の壁（19〜23歳未満の親族を扶養する場合）', value: 150, note: '特定親族特別控除の対象となる収入要件です' });
+  if (senior) list.push({ label: '180万円の壁（60歳以上・障害厚生年金相当の場合）', value: 180, note: '社会保険上の扶養要件が緩和されます' });
+  list.sort(function (a, b) { return a.value - b.value; });
+
+  var rows = list.map(function (t) {
+    var over = income >= t.value;
+    var status = '<span style="color:' + (over ? '#dc2626' : '#16a34a') + '">' + (over ? '超えています' : '超えていません') + '</span>';
+    return '<tr><th>' + t.label + '（' + t.value + '万円）</th><td>' + status + (t.note ? '<br><span style="font-size:0.8rem;color:var(--color-text-muted)">' + t.note + '</span>' : '') + '</td></tr>';
+  }).join('');
+
+  box.className = 'result-box';
+  box.innerHTML = '<table class="simple-table">' + rows + '</table>';
+});
+</script>
+</body>
+</html>

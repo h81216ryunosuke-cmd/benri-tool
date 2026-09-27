@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ふるさと納税上限目安計算 | べんりツール</title>
+<meta name="description" content="年収と家族構成を選ぶだけで、ふるさと納税の控除上限額の目安が分かる無料ツールです。一般的な早見表を基にした概算値です。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/furusato-jougen-mokuyasu/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ふるさと納税上限目安計算",
+  "url": "https://benri-tool.pages.dev/tools/furusato-jougen-mokuyasu/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "ふるさと納税上限目安計算", "item": "https://benri-tool.pages.dev/tools/furusato-jougen-mokuyasu/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; ふるさと納税上限目安計算</p>
+  <h1>ふるさと納税上限目安計算</h1>
+  <p class="lead">年収と家族構成を選ぶと、ふるさと納税の控除上限額の目安を計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="furusato-income">年収（万円）</label>
+      <input type="number" id="furusato-income" min="0" placeholder="例：550">
+    </div>
+    <div class="field">
+      <label for="furusato-family">家族構成</label>
+      <select id="furusato-family">
+        <option value="single">独身、または共働き（配偶者控除なし）</option>
+        <option value="couple">夫婦のみ（配偶者に収入がない）</option>
+        <option value="couple_child_hs">共働き＋子1人（高校生）</option>
+      </select>
+    </div>
+    <button type="button" class="btn" id="furusato-calc-btn">上限目安を計算</button>
+    <div id="furusato-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="card" style="margin-top:20px; text-align:center">
+    <p style="margin:0 0 12px">寄付先の返礼品を探すなら</p>
+    <a class="btn" href="https://furusato-labo.net/?utm_source=benri-tool&amp;utm_medium=referral&amp;utm_campaign=furusato-jougen-mokuyasu&amp;utm_content=cta_button" target="_blank" rel="noopener">ふるさとラボで返礼品を探す</a>
+  </div>
+
+  <p class="note-box">本ツールの数値は一般的に公開されている年収・家族構成別の早見表を基にした概算目安です（2026年9月時点の情報、年収300万〜1,000万円を対象とした目安のため、それ以外の年収の方は詳細シミュレーターをご利用ください）。住宅ローン控除・医療費控除など他の控除がある場合は上限額が変わるため、正確な金額はふるさと納税サイトの詳細シミュレーターでご確認ください。寄付先の返礼品探しには、データ分析で返礼品を比較する<a href="https://furusato-labo.net/?utm_source=benri-tool&amp;utm_medium=referral&amp;utm_campaign=furusato-jougen-mokuyasu&amp;utm_content=note_link" target="_blank" rel="noopener">ふるさとラボ</a>もご活用ください。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>この金額はどれくらい正確ですか？</summary>
+      <p>一般的に公開されている年収・家族構成別の早見表をもとにした目安です。住宅ローン控除や医療費控除など他の控除がある場合は上限額が変わるため、正確な金額はふるさと納税サイトの詳細シミュレーターでご確認ください。</p>
+    </details>
+    <details>
+      <summary>家族構成が当てはまらない場合はどうすればいいですか？</summary>
+      <p>最も近い家族構成を選んで目安として参考にしてください。より正確な条件で計算したい場合は、公式シミュレーターの利用をおすすめします。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/nenshu-no-kabe-keisan/">
+        <div class="tool-card__title">年収の壁シミュレーター</div>
+        <div class="tool-card__desc">年収から税金・社会保険のしきい値をチェック</div>
+      </a>
+      <a class="tool-card" href="/tools/point-kangen-keisan/">
+        <div class="tool-card__title">ポイント還元額計算</div>
+        <div class="tool-card__desc">購入金額と還元率からポイント数を計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var TABLE = {
+  single: { 300: 28000, 400: 42000, 500: 61000, 600: 77000, 700: 108000, 800: 129000, 900: 152000, 1000: 176000 },
+  couple: { 300: 19000, 400: 33000, 500: 49000, 600: 69000, 700: 86000, 800: 120000, 900: 143000, 1000: 166000 },
+  couple_child_hs: { 300: 19000, 400: 33000, 500: 49000, 600: 66000, 700: 78000, 800: 110000, 900: 141000, 1000: 157000 }
+};
+
+function interpolate(table, income) {
+  var keys = Object.keys(table).map(Number).sort(function (a, b) { return a - b; });
+  if (income <= keys[0]) return table[keys[0]];
+  if (income >= keys[keys.length - 1]) return table[keys[keys.length - 1]];
+  for (var i = 0; i < keys.length - 1; i++) {
+    if (income >= keys[i] && income <= keys[i + 1]) {
+      var ratio = (income - keys[i]) / (keys[i + 1] - keys[i]);
+      return Math.round(table[keys[i]] + (table[keys[i + 1]] - table[keys[i]]) * ratio);
+    }
+  }
+}
+
+document.getElementById('furusato-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('furusato-result');
+  var income = parseFloat(document.getElementById('furusato-income').value);
+  var family = document.getElementById('furusato-family').value;
+
+  if (isNaN(income) || income <= 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">年収（万円）を入力してください</span>';
+    return;
+  }
+
+  var limit = interpolate(TABLE[family], income);
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">上限目安：約 ' + limit.toLocaleString() + ' 円</div>' +
+    '<span>この金額までの寄付なら、自己負担2,000円を除いた分が控除される目安です</span>';
+});
+</script>
+</body>
+</html>
