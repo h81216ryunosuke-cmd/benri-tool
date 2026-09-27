@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SITE_URL = process.env.SITE_URL || "https://benri-tool.pages.dev";
 
-const staticPages = ["/", "/tools/", "/about.html", "/privacy.html", "/contact.html"];
+const staticPages = ["/", "/tools/", "/series/", "/about.html", "/privacy.html", "/contact.html"];
 
 const toolsDir = join(ROOT, "tools");
 const toolSlugs = existsSync(toolsDir)
@@ -17,8 +17,17 @@ const toolSlugs = existsSync(toolsDir)
       .sort()
   : [];
 
+const seriesDir = join(ROOT, "series");
+const seriesSlugs = existsSync(seriesDir)
+  ? readdirSync(seriesDir, { withFileTypes: true })
+      .filter((d) => d.isDirectory())
+      .map((d) => d.name)
+      .sort()
+  : [];
+
 const toolPages = toolSlugs.map((slug) => `/tools/${slug}/`);
-const urls = [...staticPages, ...toolPages];
+const seriesPages = seriesSlugs.map((slug) => `/series/${slug}/`);
+const urls = [...staticPages, ...toolPages, ...seriesPages];
 
 const xml =
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
