@@ -12,6 +12,7 @@
   <url><loc>https://benri-tool.pages.dev/tools/color-code/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/eto-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/furusato-jougen-mokuyasu/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/gazou-pdf-henkan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/genkouyoushi-kansan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/gensen-choshuu-zeigaku-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/hash-keisan/</loc></url>
@@ -27,11 +28,14 @@
   <url><loc>https://benri-tool.pages.dev/tools/nenshu-no-kabe-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/nissu-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/password-generator/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/pdf-bunkatsu/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/pdf-ketsugou/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/point-kangen-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/qr-generator/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/ryori-keiryo/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/seikatsuhi-yosan-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/shakkanho-henkan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/slide-hiritsu-hayamihyou/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/unixtime-henkan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/url-encode/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/wareki-seireki/</loc></url>
@@ -47,6 +51,7 @@
   <url><loc>https://benri-tool.pages.dev/series/household/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/life/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/moving/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/series/office/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/student/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/trade/</loc></url>
 </urlset>

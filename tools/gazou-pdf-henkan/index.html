@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>画像→PDF変換 | べんりツール</title>
+<meta name="description" content="複数の画像ファイルを選択した順に1ページずつ配置し、1つのPDFに変換してダウンロードできる無料ツールです。すべてブラウザ内で処理され、ファイルは送信されません。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/gazou-pdf-henkan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "画像→PDF変換",
+  "url": "https://benri-tool.pages.dev/tools/gazou-pdf-henkan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "画像→PDF変換", "item": "https://benri-tool.pages.dev/tools/gazou-pdf-henkan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 画像→PDF変換</p>
+  <h1>画像→PDF変換</h1>
+  <p class="lead">複数の画像ファイルを選択した順に1ページずつ配置し、1つのPDFに変換してダウンロードします。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="img-pdf-files">画像ファイル（複数選択可、JPEG・PNG推奨）</label>
+      <input type="file" id="img-pdf-files" accept="image/*" multiple>
+    </div>
+    <button type="button" class="btn" id="img-pdf-btn">PDFに変換してダウンロード</button>
+    <div id="img-pdf-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">処理はすべてブラウザ内で完結し、画像ファイルが外部サーバーに送信されることはありません。ただし高解像度の画像を多数選択すると、動作が重くなる場合があります。JPEG・PNG以外の形式は自動的にPNGへ変換してから配置します。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>アップロードした画像はサーバーに送信されますか？</summary>
+      <p>いいえ。処理はすべてお使いのブラウザ内（JavaScript）で完結しており、画像ファイルの内容が外部サーバーに送信されることはありません。</p>
+    </details>
+    <details>
+      <summary>ページのサイズや向きは調整できますか？</summary>
+      <p>現在は各画像の元のピクセルサイズをそのままページサイズとして配置します。用紙サイズ（A4等）への自動リサイズや向きの調整機能は今後追加予定です。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/pdf-bunkatsu/">
+        <div class="tool-card__title">PDF分割</div>
+        <div class="tool-card__desc">PDFからページ範囲を抽出して新規PDFを作成</div>
+      </a>
+      <a class="tool-card" href="/tools/pdf-ketsugou/">
+        <div class="tool-card__title">PDF結合</div>
+        <div class="tool-card__desc">複数のPDFファイルを1つに結合</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function convertToPngViaCanvas(file) {
+  return new Promise(function (resolve, reject) {
+    var img = new Image();
+    var url = URL.createObjectURL(file);
+    img.onload = function () {
+      var canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+      canvas.toBlob(function (blob) {
+        URL.revokeObjectURL(url);
+        if (!blob) { reject(new Error('画像の変換に失敗しました')); return; }
+        blob.arrayBuffer().then(resolve, reject);
+      }, 'image/png');
+    };
+    img.onerror = function () { URL.revokeObjectURL(url); reject(new Error('画像の読み込みに失敗しました')); };
+    img.src = url;
+  });
+}
+
+document.getElementById('img-pdf-btn').addEventListener('click', async function () {
+  var box = document.getElementById('img-pdf-result');
+  var files = document.getElementById('img-pdf-files').files;
+
+  if (!files || files.length === 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">画像ファイルを選択してください</span>';
+    return;
+  }
+
+  box.className = 'result-box';
+  box.textContent = '処理中...';
+
+  try {
+    var pdfDoc = await PDFLib.PDFDocument.create();
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      var image;
+      if (file.type === 'image/jpeg' || file.type === 'image/jpg') {
+        var jpgBuf = await file.arrayBuffer();
+        image = await pdfDoc.embedJpg(jpgBuf);
+      } else if (file.type === 'image/png') {
+        var pngBuf = await file.arrayBuffer();
+        image = await pdfDoc.embedPng(pngBuf);
+      } else {
+        var convertedBuf = await convertToPngViaCanvas(file);
+        image = await pdfDoc.embedPng(convertedBuf);
+      }
+      var page = pdfDoc.addPage([image.width, image.height]);
+      page.drawImage(image, { x: 0, y: 0, width: image.width, height: image.height });
+    }
+
+    var pdfBytes = await pdfDoc.save();
+    var blob = new Blob([pdfBytes], { type: 'application/pdf' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'images.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    box.innerHTML = '<span>' + files.length + '枚の画像を1つのPDFに変換してダウンロードしました</span>';
+  } catch (e) {
+    box.innerHTML = '<span class="error-text">処理に失敗しました：' + e.message + '</span>';
+  }
+});
+</script>
+</body>
+</html>

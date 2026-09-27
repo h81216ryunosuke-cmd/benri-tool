@@ -201,6 +201,17 @@ h2 {
   min-height: 120px;
 }
 
+.field input[type="file"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.92rem;
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: inherit;
+}
+
 .checkbox-row {
   display: flex;
   align-items: center;

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スライド比率早見 | べんりツール</title>
+<meta name="description" content="16:9・4:3・1:1などのアスペクト比から、パワーポイントのスライドや画像でよく使う解像度を計算・早見できる無料ツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/slide-hiritsu-hayamihyou/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "スライド比率早見",
+  "url": "https://benri-tool.pages.dev/tools/slide-hiritsu-hayamihyou/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "スライド比率早見", "item": "https://benri-tool.pages.dev/tools/slide-hiritsu-hayamihyou/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; スライド比率早見</p>
+  <h1>スライド比率早見</h1>
+  <p class="lead">アスペクト比と幅を入力すると、対応する高さを計算します。パワーポイントの資料や画像サイズの調整にご利用ください。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="slide-ratio">アスペクト比</label>
+      <select id="slide-ratio">
+        <option value="16:9">16:9（ワイド、標準的なスライド）</option>
+        <option value="4:3">4:3（従来型スライド）</option>
+        <option value="1:1">1:1（正方形）</option>
+        <option value="custom">カスタム</option>
+      </select>
+    </div>
+    <div id="slide-custom-fields" style="display:none">
+      <div class="field">
+        <label for="slide-custom-w">カスタム比率（幅の数字）</label>
+        <input type="number" id="slide-custom-w" min="1" step="any" placeholder="例：21">
+      </div>
+      <div class="field">
+        <label for="slide-custom-h">カスタム比率（高さの数字）</label>
+        <input type="number" id="slide-custom-h" min="1" step="any" placeholder="例：9">
+      </div>
+    </div>
+    <div class="field">
+      <label for="slide-width">幅（px）</label>
+      <input type="number" id="slide-width" min="1" placeholder="例：1920">
+    </div>
+    <button type="button" class="btn" id="slide-calc-btn">高さを計算</button>
+    <div id="slide-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <h2>よく使われる解像度の早見表</h2>
+  <table class="simple-table">
+    <thead>
+      <tr><th>比率</th><th>解像度</th><th>主な用途</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>16:9</td><td>1280 × 720</td><td>HD、標準的なスライド</td></tr>
+      <tr><td>16:9</td><td>1920 × 1080</td><td>フルHD、動画・高解像度スライド</td></tr>
+      <tr><td>16:9</td><td>3840 × 2160</td><td>4K</td></tr>
+      <tr><td>4:3</td><td>1024 × 768</td><td>従来型スライド・プロジェクター</td></tr>
+      <tr><td>4:3</td><td>800 × 600</td><td>従来型ディスプレイ</td></tr>
+      <tr><td>1:1</td><td>1080 × 1080</td><td>SNS投稿画像</td></tr>
+    </tbody>
+  </table>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>パワーポイントの初期設定はどの比率ですか？</summary>
+      <p>近年のPowerPointの初期設定は16:9（ワイド画面）です。以前のバージョンでは4:3が標準でした。</p>
+    </details>
+    <details>
+      <summary>カスタム比率はどんな時に使いますか？</summary>
+      <p>21:9のシネマスコープサイズや、印刷物特有の比率など、標準的な比率に当てはまらない場合に利用できます。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/gazou-pdf-henkan/">
+        <div class="tool-card__title">画像→PDF変換</div>
+        <div class="tool-card__desc">複数の画像をまとめて1つのPDFに変換</div>
+      </a>
+      <a class="tool-card" href="/tools/moji-count/">
+        <div class="tool-card__title">文字数カウント</div>
+        <div class="tool-card__desc">文字数・バイト数・行数をリアルタイム集計</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var ratioSelect = document.getElementById('slide-ratio');
+var customFields = document.getElementById('slide-custom-fields');
+ratioSelect.addEventListener('change', function () {
+  customFields.style.display = ratioSelect.value === 'custom' ? 'block' : 'none';
+});
+
+document.getElementById('slide-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('slide-result');
+  var width = parseFloat(document.getElementById('slide-width').value);
+  var ratioValue = ratioSelect.value;
+  var rw, rh;
+
+  if (ratioValue === 'custom') {
+    rw = parseFloat(document.getElementById('slide-custom-w').value);
+    rh = parseFloat(document.getElementById('slide-custom-h').value);
+  } else {
+    var parts = ratioValue.split(':');
+    rw = parseFloat(parts[0]);
+    rh = parseFloat(parts[1]);
+  }
+
+  if (isNaN(width) || width <= 0 || isNaN(rw) || isNaN(rh) || rw <= 0 || rh <= 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">幅とアスペクト比を正しく入力してください</span>';
+    return;
+  }
+
+  var height = Math.round(width * rh / rw);
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + width + ' × ' + height + ' px</div>';
+});
+</script>
+</body>
+</html>
