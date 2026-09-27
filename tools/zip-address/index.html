@@ -60,12 +60,40 @@
     <div id="zip-result" class="result-box is-empty">結果はここに表示されます</div>
   </div>
 
-  <div class="ad-slot">広告枠（AdSense承認後に設置）</div>
-
   <h2>使い方</h2>
   <p>郵便番号を入力して「住所を検索」を押すと、日本郵便の郵便番号データをもとにした外部API（zipcloud）から該当する住所を取得して表示します。</p>
 
   <p class="note-box">このツールは検索時に入力した郵便番号を外部API「zipcloud」（https://zipcloud.ibsnet.co.jp/）へ送信します。郵便番号以外の情報は送信されません。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>全ての郵便番号に対応していますか？</summary>
+      <p>日本郵便が公開する郵便番号データに基づいているため、実在する郵便番号であれば基本的に対応しています。ただし、大口事業所個別番号など一部の特殊な郵便番号は正しく表示されない場合があります。</p>
+    </details>
+    <details>
+      <summary>複数の住所が出てくるのはなぜですか？</summary>
+      <p>同じ郵便番号に複数の町域（丁目や地区）が割り当てられている場合、該当する全ての住所候補が一覧表示されます。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/wareki-seireki/">
+        <div class="tool-card__title">西暦⇔和暦変換</div>
+        <div class="tool-card__desc">明治・大正・昭和・平成・令和を相互変換</div>
+      </a>
+      <a class="tool-card" href="/tools/color-code/">
+        <div class="tool-card__title">カラーコード変換</div>
+        <div class="tool-card__desc">HEX・RGB・HSLを相互変換してプレビュー</div>
+      </a>
+      <a class="tool-card" href="/tools/zenkaku-hankaku/">
+        <div class="tool-card__title">全角⇔半角変換</div>
+        <div class="tool-card__desc">英数字・記号・カナの全角半角を一括変換</div>
+      </a>
+    </div>
+  </div>
 </main>
 
 <footer class="site-footer">

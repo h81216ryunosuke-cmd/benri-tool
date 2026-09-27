@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日数計算（何日後・何日間） | べんりツール</title>
+<meta name="description" content="2つの日付の間の日数、または基準日からN日後・N日前の日付を無料で計算できるツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/nissu-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "日数計算",
+  "url": "https://benri-tool.pages.dev/tools/nissu-keisan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "日数計算", "item": "https://benri-tool.pages.dev/tools/nissu-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 日数計算</p>
+  <h1>日数計算（何日後・何日間）</h1>
+  <p class="lead">2つの日付の間の日数、または基準日からN日後・前の日付を計算します。</p>
+
+  <div class="card">
+    <h2 style="margin-top:0">2つの日付の間の日数</h2>
+    <div class="field">
+      <label for="nissu-start">開始日</label>
+      <input type="date" id="nissu-start">
+    </div>
+    <div class="field">
+      <label for="nissu-end">終了日</label>
+      <input type="date" id="nissu-end">
+    </div>
+    <button type="button" class="btn" id="nissu-diff-btn">日数を計算</button>
+    <div id="nissu-diff-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h2 style="margin-top:0">基準日からN日後・前の日付</h2>
+    <div class="field">
+      <label for="nissu-base">基準日</label>
+      <input type="date" id="nissu-base">
+    </div>
+    <div class="field">
+      <label for="nissu-n">日数</label>
+      <input type="number" id="nissu-n" placeholder="例：30">
+    </div>
+    <div class="field">
+      <label for="nissu-dir">方向</label>
+      <select id="nissu-dir">
+        <option value="after">後</option>
+        <option value="before">前</option>
+      </select>
+    </div>
+    <button type="button" class="btn" id="nissu-shift-btn">日付を計算</button>
+    <div id="nissu-shift-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">「間の日数」は開始日と終了日の両方を含まない差分日数です（例：1月1日〜1月2日は1日）。契約・締切等で「初日算入」のルールが別に定められている場合は、そちらを優先してください。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>妊娠週数の計算にも使えますか？</summary>
+      <p>「2つの日付の間の日数」で最終月経開始日から今日までの日数を出し、7で割ると週数の目安が分かります。ただし医療的な判断は必ず医師の診断を優先してください。</p>
+    </details>
+    <details>
+      <summary>土日祝日を除いた営業日で計算できますか？</summary>
+      <p>このツールは暦日（土日祝日を含む単純な日数）での計算のみに対応しています。営業日ベースの計算が必要な場合は別途カレンダーでご確認ください。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/age-calculator/">
+        <div class="tool-card__title">年齢計算</div>
+        <div class="tool-card__desc">生年月日から満年齢と誕生日までの日数を計算</div>
+      </a>
+      <a class="tool-card" href="/tools/kinzoku-nensu/">
+        <div class="tool-card__title">勤続年数計算</div>
+        <div class="tool-card__desc">入社日から勤続年数・ヶ月を計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function parseD(id) {
+  var val = document.getElementById(id).value;
+  if (!val) return null;
+  var p = val.split('-').map(Number);
+  return new Date(p[0], p[1] - 1, p[2]);
+}
+
+document.getElementById('nissu-diff-btn').addEventListener('click', function () {
+  var box = document.getElementById('nissu-diff-result');
+  var start = parseD('nissu-start');
+  var end = parseD('nissu-end');
+  if (!start || !end) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">開始日と終了日を入力してください</span>';
+    return;
+  }
+  var diff = Math.round((end - start) / (1000 * 60 * 60 * 24));
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + Math.abs(diff) + ' 日間</div>' +
+    '<span>' + (diff >= 0 ? '終了日は開始日の' + diff + '日後です' : '終了日は開始日の' + Math.abs(diff) + '日前です') + '</span>';
+});
+
+document.getElementById('nissu-shift-btn').addEventListener('click', function () {
+  var box = document.getElementById('nissu-shift-result');
+  var base = parseD('nissu-base');
+  var n = parseInt(document.getElementById('nissu-n').value, 10);
+  var dir = document.getElementById('nissu-dir').value;
+  if (!base || isNaN(n) || n < 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">基準日と日数を入力してください</span>';
+    return;
+  }
+  var result = new Date(base);
+  result.setDate(result.getDate() + (dir === 'after' ? n : -n));
+  var label = result.getFullYear() + '年' + (result.getMonth() + 1) + '月' + result.getDate() + '日';
+  var weekday = ['日', '月', '火', '水', '木', '金', '土'][result.getDay()];
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + label + '（' + weekday + '）</div>';
+});
+</script>
+</body>
+</html>

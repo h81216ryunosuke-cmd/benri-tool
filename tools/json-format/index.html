@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JSON整形ツール（フォーマッター） | べんりツール</title>
+<meta name="description" content="崩れたJSONをきれいなインデント付きで整形、または1行に圧縮できる無料ツールです。構文エラーの箇所も分かります。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/json-format/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "JSON整形ツール",
+  "url": "https://benri-tool.pages.dev/tools/json-format/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "JSON整形ツール", "item": "https://benri-tool.pages.dev/tools/json-format/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; JSON整形ツール</p>
+  <h1>JSON整形ツール（フォーマッター）</h1>
+  <p class="lead">崩れたJSONを見やすく整形、または1行に圧縮します。構文エラーがあれば表示します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="json-input">JSON文字列</label>
+      <textarea id="json-input" style="min-height:220px; font-family:monospace" placeholder='例：{"name":"べんりツール","free":true}'></textarea>
+    </div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap">
+      <button type="button" class="btn" id="json-format-btn">整形する（インデント付き）</button>
+      <button type="button" class="btn" id="json-minify-btn">1行に圧縮する</button>
+    </div>
+    <div id="json-error" class="error-text" style="margin-top:10px"></div>
+  </div>
+
+  <p class="note-box">入力したJSONはブラウザ内でのみ処理され、サーバーには送信されません。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>「予期しないトークン」というエラーが出ます</summary>
+      <p>JSONの構文（カンマの付け忘れ・付けすぎ、クォートの閉じ忘れ等）に誤りがある可能性が高いです。エラーメッセージに表示される位置周辺を確認してください。</p>
+    </details>
+    <details>
+      <summary>シングルクォートで書いたJSONは読み込めますか？</summary>
+      <p>JSONの仕様上、文字列はダブルクォート（"）で囲む必要があります。シングルクォート（'）で書かれたものはJavaScriptのオブジェクトリテラルとしては有効でも、正式なJSONとしてはエラーになります。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/base64/">
+        <div class="tool-card__title">Base64エンコード/デコード</div>
+        <div class="tool-card__desc">テキストのBase64変換（日本語対応）</div>
+      </a>
+      <a class="tool-card" href="/tools/unixtime-henkan/">
+        <div class="tool-card__title">Unixタイムスタンプ変換</div>
+        <div class="tool-card__desc">タイムスタンプと日時を相互に変換</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('json-format-btn').addEventListener('click', function () {
+  var errorBox = document.getElementById('json-error');
+  var textarea = document.getElementById('json-input');
+  errorBox.textContent = '';
+  try {
+    var obj = JSON.parse(textarea.value);
+    textarea.value = JSON.stringify(obj, null, 2);
+  } catch (e) {
+    errorBox.textContent = 'JSONとして正しくありません： ' + e.message;
+  }
+});
+
+document.getElementById('json-minify-btn').addEventListener('click', function () {
+  var errorBox = document.getElementById('json-error');
+  var textarea = document.getElementById('json-input');
+  errorBox.textContent = '';
+  try {
+    var obj = JSON.parse(textarea.value);
+    textarea.value = JSON.stringify(obj);
+  } catch (e) {
+    errorBox.textContent = 'JSONとして正しくありません： ' + e.message;
+  }
+});
+</script>
+</body>
+</html>

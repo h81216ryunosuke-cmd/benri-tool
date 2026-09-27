@@ -5,14 +5,25 @@
   <url><loc>https://benri-tool.pages.dev/about.html</loc></url>
   <url><loc>https://benri-tool.pages.dev/privacy.html</loc></url>
   <url><loc>https://benri-tool.pages.dev/contact.html</loc></url>
-  <url><loc>https://benri-tool.pages.dev/tools/zip-address/</loc></url>
-  <url><loc>https://benri-tool.pages.dev/tools/wareki-seireki/</loc></url>
-  <url><loc>https://benri-tool.pages.dev/tools/warikan/</loc></url>
-  <url><loc>https://benri-tool.pages.dev/tools/zeikomi/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/age-calculator/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/base64/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/color-code/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/eto-keisan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/hash-keisan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/json-format/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/kinzoku-nensu/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/moji-count/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/nissu-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/password-generator/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/qr-generator/</loc></url>
-  <url><loc>https://benri-tool.pages.dev/tools/moji-count/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/ryori-keiryo/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/shakkanho-henkan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/unixtime-henkan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/url-encode/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/wareki-seireki/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/waribiki-keisan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/warikan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/zeikomi/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/zenkaku-hankaku/</loc></url>
-  <url><loc>https://benri-tool.pages.dev/tools/color-code/</loc></url>
-  <url><loc>https://benri-tool.pages.dev/tools/age-calculator/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/zip-address/</loc></url>
 </urlset>

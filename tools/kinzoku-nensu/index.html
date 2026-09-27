@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>勤続年数計算 | べんりツール</title>
+<meta name="description" content="入社日と基準日（退職日や今日）を入力するだけで、勤続年数・ヶ月・日数を無料で計算できるツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/kinzoku-nensu/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "勤続年数計算",
+  "url": "https://benri-tool.pages.dev/tools/kinzoku-nensu/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "勤続年数計算", "item": "https://benri-tool.pages.dev/tools/kinzoku-nensu/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 勤続年数計算</p>
+  <h1>勤続年数計算</h1>
+  <p class="lead">入社日と基準日を入力すると、勤続年数・ヶ月・日数を計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="kz-start">入社日</label>
+      <input type="date" id="kz-start">
+    </div>
+    <div class="field">
+      <label for="kz-base">基準日（退職日、または省略時は今日）</label>
+      <input type="date" id="kz-base">
+    </div>
+    <button type="button" class="btn" id="kz-calc-btn">計算する</button>
+    <div id="kz-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">退職金・慶弔規定などの「勤続年数」は、企業ごとに端数月の切り上げ・切り捨てルールが異なります。正確な数値が必要な場合は、勤務先の規定を必ずご確認ください。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>入社日を含めて計算されますか？</summary>
+      <p>はい、入社日当日から起算して満年数・満ヶ月数・残り日数を計算しています。</p>
+    </details>
+    <details>
+      <summary>基準日を空欄にするとどうなりますか？</summary>
+      <p>基準日を入力しない場合は、今日の日付を基準に計算します。退職日が決まっている場合はその日付を入力してください。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/nissu-keisan/">
+        <div class="tool-card__title">日数計算</div>
+        <div class="tool-card__desc">2つの日付の間の日数や、N日後の日付を計算</div>
+      </a>
+      <a class="tool-card" href="/tools/age-calculator/">
+        <div class="tool-card__title">年齢計算</div>
+        <div class="tool-card__desc">生年月日から満年齢と誕生日までの日数を計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function parseD(id) {
+  var val = document.getElementById(id).value;
+  if (!val) return null;
+  var p = val.split('-').map(Number);
+  return new Date(p[0], p[1] - 1, p[2]);
+}
+
+document.getElementById('kz-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('kz-result');
+  var start = parseD('kz-start');
+  var base = parseD('kz-base') || new Date(new Date().setHours(0, 0, 0, 0));
+
+  if (!start) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">入社日を入力してください</span>';
+    return;
+  }
+  if (start > base) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">入社日が基準日より後になっています</span>';
+    return;
+  }
+
+  var years = base.getFullYear() - start.getFullYear();
+  var months = base.getMonth() - start.getMonth();
+  var days = base.getDate() - start.getDate();
+
+  if (days < 0) {
+    months--;
+    var prevMonth = new Date(base.getFullYear(), base.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  var totalDays = Math.round((base - start) / (1000 * 60 * 60 * 24));
+
+  box.className = 'result-box';
+  box.innerHTML =
+    '<div class="big">' + years + '年' + months + 'ヶ月' + days + '日</div>' +
+    '<span>合計日数：' + totalDays.toLocaleString() + ' 日</span>';
+});
+</script>
+</body>
+</html>

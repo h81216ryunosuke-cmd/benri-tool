@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>割引計算（割引率・割引後価格） | べんりツール</title>
+<meta name="description" content="元の価格と割引率から割引後の価格を、または元の価格と割引後価格から割引率を無料で計算できるツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/waribiki-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "割引計算",
+  "url": "https://benri-tool.pages.dev/tools/waribiki-keisan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "割引計算", "item": "https://benri-tool.pages.dev/tools/waribiki-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 割引計算</p>
+  <h1>割引計算（割引率・割引後価格）</h1>
+  <p class="lead">元の価格と割引率から割引後価格を、または割引前後の価格から割引率を計算します。</p>
+
+  <div class="card">
+    <h2 style="margin-top:0">価格 ＋ 割引率 → 割引後価格</h2>
+    <div class="field">
+      <label for="wb-price">元の価格（円）</label>
+      <input type="number" id="wb-price" min="0" placeholder="例：3000">
+    </div>
+    <div class="field">
+      <label for="wb-rate">割引率（%）</label>
+      <input type="number" id="wb-rate" min="0" max="100" placeholder="例：20">
+    </div>
+    <button type="button" class="btn" id="wb-calc-btn">計算する</button>
+    <div id="wb-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h2 style="margin-top:0">元の価格 ＋ 割引後価格 → 割引率</h2>
+    <div class="field">
+      <label for="wb-rev-before">元の価格（円）</label>
+      <input type="number" id="wb-rev-before" min="0" placeholder="例：3000">
+    </div>
+    <div class="field">
+      <label for="wb-rev-after">割引後価格（円）</label>
+      <input type="number" id="wb-rev-after" min="0" placeholder="例：2400">
+    </div>
+    <button type="button" class="btn" id="wb-rev-btn">割引率を計算</button>
+    <div id="wb-rev-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>端数はどう処理されますか？</summary>
+      <p>割引後価格は円未満を四捨五入して表示しています。実際の店頭価格は税込表示や独自の端数処理ルールにより多少異なる場合があります。</p>
+    </details>
+    <details>
+      <summary>「30%OFF」と「7割の価格」は同じ意味ですか？</summary>
+      <p>はい、同じです。「30%OFF」＝元の価格の70%（10割−3割）が割引後価格になります。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/zeikomi/">
+        <div class="tool-card__title">消費税計算（税込⇔税抜）</div>
+        <div class="tool-card__desc">8%・10%を切替えて瞬時に計算</div>
+      </a>
+      <a class="tool-card" href="/tools/warikan/">
+        <div class="tool-card__title">割り勘計算</div>
+        <div class="tool-card__desc">端数処理も一発、一人あたり金額を計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('wb-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('wb-result');
+  var price = parseFloat(document.getElementById('wb-price').value);
+  var rate = parseFloat(document.getElementById('wb-rate').value);
+
+  if (!price || price < 0 || isNaN(rate) || rate < 0 || rate > 100) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">価格と割引率（0〜100）を正しく入力してください</span>';
+    return;
+  }
+
+  var after = Math.round(price * (1 - rate / 100));
+  var discount = price - after;
+
+  box.className = 'result-box';
+  box.innerHTML =
+    '<div class="big">割引後価格：' + after.toLocaleString() + ' 円</div>' +
+    '<span>割引額：' + discount.toLocaleString() + ' 円</span>';
+});
+
+document.getElementById('wb-rev-btn').addEventListener('click', function () {
+  var box = document.getElementById('wb-rev-result');
+  var before = parseFloat(document.getElementById('wb-rev-before').value);
+  var after = parseFloat(document.getElementById('wb-rev-after').value);
+
+  if (!before || before <= 0 || isNaN(after) || after < 0 || after > before) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">元の価格・割引後価格を正しく入力してください（割引後価格は元の価格以下）</span>';
+    return;
+  }
+
+  var rate = (1 - after / before) * 100;
+
+  box.className = 'result-box';
+  box.innerHTML =
+    '<div class="big">割引率：約 ' + rate.toFixed(1) + ' %</div>' +
+    '<span>割引額：' + (before - after).toLocaleString() + ' 円</span>';
+});
+</script>
+</body>
+</html>

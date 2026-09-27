@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unixタイムスタンプ変換 | べんりツール</title>
+<meta name="description" content="Unixタイムスタンプ（秒・ミリ秒）と日時を、無料で相互に変換できるエンジニア向けツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/unixtime-henkan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Unixタイムスタンプ変換",
+  "url": "https://benri-tool.pages.dev/tools/unixtime-henkan/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "Unixタイムスタンプ変換", "item": "https://benri-tool.pages.dev/tools/unixtime-henkan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; Unixタイムスタンプ変換</p>
+  <h1>Unixタイムスタンプ変換</h1>
+  <p class="lead">Unixタイムスタンプと日時を相互に変換します。秒・ミリ秒は自動判別します。</p>
+
+  <div class="card">
+    <h2 style="margin-top:0">タイムスタンプ → 日時</h2>
+    <div class="field">
+      <label for="ut-input">Unixタイムスタンプ</label>
+      <input type="text" id="ut-input" inputmode="numeric" placeholder="例：1735689600">
+    </div>
+    <button type="button" class="btn" id="ut-to-date-btn">日時に変換</button>
+    <button type="button" class="btn" id="ut-now-btn" style="background:var(--color-text-muted)">現在時刻を入れる</button>
+    <div id="ut-date-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h2 style="margin-top:0">日時 → タイムスタンプ</h2>
+    <div class="field">
+      <label for="ut-datetime">日時（ブラウザのタイムゾーン基準）</label>
+      <input type="datetime-local" id="ut-datetime" step="1">
+    </div>
+    <button type="button" class="btn" id="ut-to-ts-btn">タイムスタンプに変換</button>
+    <div id="ut-ts-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">日時の表示・入力は、このツールを開いているブラウザのタイムゾーン（日本国内であれば通常JST）を基準にしています。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>秒とミリ秒はどう判別していますか？</summary>
+      <p>入力された数値の桁数で自動判別しています（おおむね11桁以下なら秒、13桁前後ならミリ秒として扱います）。</p>
+    </details>
+    <details>
+      <summary>2038年問題とは何ですか？</summary>
+      <p>Unixタイムスタンプを32bit符号付き整数で扱うシステムでは、2038年1月19日以降の日時を正しく表現できなくなる問題です。現在の主要な言語・OSは64bit化が進んでおり影響は限定的ですが、古いシステムでは注意が必要です。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/json-format/">
+        <div class="tool-card__title">JSON整形ツール</div>
+        <div class="tool-card__desc">JSONの整形（インデント）と圧縮</div>
+      </a>
+      <a class="tool-card" href="/tools/hash-keisan/">
+        <div class="tool-card__title">ハッシュ値計算</div>
+        <div class="tool-card__desc">SHA-256等のハッシュ値をその場で計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function pad(n) { return String(n).padStart(2, '0'); }
+
+document.getElementById('ut-now-btn').addEventListener('click', function () {
+  document.getElementById('ut-input').value = Math.floor(Date.now() / 1000);
+});
+
+document.getElementById('ut-to-date-btn').addEventListener('click', function () {
+  var box = document.getElementById('ut-date-result');
+  var raw = document.getElementById('ut-input').value.trim();
+  if (!/^-?\d+$/.test(raw)) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">半角数字のタイムスタンプを入力してください</span>';
+    return;
+  }
+  var num = parseInt(raw, 10);
+  var ms = raw.replace('-', '').length >= 13 ? num : num * 1000;
+  var d = new Date(ms);
+  if (isNaN(d.getTime())) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">日時に変換できませんでした</span>';
+    return;
+  }
+  var label = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + ' ' +
+    pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + label + '</div><span>' + d.toISOString() + '（UTC）</span>';
+});
+
+document.getElementById('ut-to-ts-btn').addEventListener('click', function () {
+  var box = document.getElementById('ut-ts-result');
+  var val = document.getElementById('ut-datetime').value;
+  if (!val) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">日時を入力してください</span>';
+    return;
+  }
+  var d = new Date(val);
+  var seconds = Math.floor(d.getTime() / 1000);
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">' + seconds + '（秒）</div><span>' + d.getTime() + '（ミリ秒）</span>';
+});
+</script>
+</body>
+</html>

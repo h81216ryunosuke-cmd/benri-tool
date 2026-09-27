@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ハッシュ値計算（SHA-256等） | べんりツール</title>
+<meta name="description" content="テキストからSHA-256・SHA-1・SHA-384・SHA-512のハッシュ値をその場で無料計算できるツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/hash-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "ハッシュ値計算",
+  "url": "https://benri-tool.pages.dev/tools/hash-keisan/",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "ハッシュ値計算", "item": "https://benri-tool.pages.dev/tools/hash-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; ハッシュ値計算</p>
+  <h1>ハッシュ値計算（SHA-256等）</h1>
+  <p class="lead">テキストを入力すると、SHA-256などのハッシュ値をその場で計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="hash-input">テキスト</label>
+      <textarea id="hash-input" placeholder="ここにテキストを入力"></textarea>
+    </div>
+    <button type="button" class="btn" id="hash-calc-btn">ハッシュ値を計算</button>
+    <div id="hash-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">計算はブラウザ標準のWeb Crypto APIで行われ、入力テキストがサーバーに送信されることはありません。SHA-1は既に暗号学的な安全性が破られているため、セキュリティ用途にはSHA-256以上を推奨します。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>MD5には対応していますか？</summary>
+      <p>MD5はブラウザ標準のWeb Crypto APIでサポートされていないため、このツールでは提供していません。ファイルの改ざんチェック等にはSHA-256の利用を推奨します。</p>
+    </details>
+    <details>
+      <summary>同じテキストなら常に同じハッシュ値になりますか？</summary>
+      <p>はい、同じアルゴリズム・同じ入力であれば、いつ計算しても常に同じハッシュ値になります（これを利用してファイルの改ざん検知等に使われます）。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/password-generator/">
+        <div class="tool-card__title">パスワード生成</div>
+        <div class="tool-card__desc">安全な乱数で強力なパスワードを作成</div>
+      </a>
+      <a class="tool-card" href="/tools/base64/">
+        <div class="tool-card__title">Base64エンコード/デコード</div>
+        <div class="tool-card__desc">テキストのBase64変換（日本語対応）</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+async function digest(algo, text) {
+  var enc = new TextEncoder().encode(text);
+  var buf = await crypto.subtle.digest(algo, enc);
+  return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+}
+
+document.getElementById('hash-calc-btn').addEventListener('click', async function () {
+  var box = document.getElementById('hash-result');
+  var text = document.getElementById('hash-input').value;
+
+  if (!text) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">テキストを入力してください</span>';
+    return;
+  }
+
+  box.className = 'result-box';
+  box.textContent = '計算中...';
+
+  var algos = [
+    { label: 'SHA-256', id: 'SHA-256' },
+    { label: 'SHA-1', id: 'SHA-1' },
+    { label: 'SHA-384', id: 'SHA-384' },
+    { label: 'SHA-512', id: 'SHA-512' }
+  ];
+
+  var rows = '';
+  for (var i = 0; i < algos.length; i++) {
+    var hash = await digest(algos[i].id, text);
+    rows += '<tr><th>' + algos[i].label + '</th><td style="font-family:monospace; word-break:break-all">' + hash + '</td></tr>';
+  }
+
+  box.innerHTML = '<table class="simple-table">' + rows + '</table>';
+});
+</script>
+</body>
+</html>
