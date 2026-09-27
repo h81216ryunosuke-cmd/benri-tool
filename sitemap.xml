@@ -12,10 +12,12 @@
   <url><loc>https://benri-tool.pages.dev/tools/eto-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/furusato-jougen-mokuyasu/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/genkouyoushi-kansan/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/gensen-choshuu-zeigaku-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/hash-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/hensachi-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/hyoutei-heikin-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/json-format/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/tools/kaji-anbun-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/kinzoku-nensu/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/koubai-kakudo-keisan/</loc></url>
   <url><loc>https://benri-tool.pages.dev/tools/moji-count/</loc></url>
@@ -39,6 +41,7 @@
   <url><loc>https://benri-tool.pages.dev/tools/zip-address/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/business/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/engineer/</loc></url>
+  <url><loc>https://benri-tool.pages.dev/series/freelance/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/household/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/life/</loc></url>
   <url><loc>https://benri-tool.pages.dev/series/student/</loc></url>

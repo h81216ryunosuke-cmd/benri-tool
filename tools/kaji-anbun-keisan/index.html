@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家事按分計算 | べんりツール</title>
+<meta name="description" content="家賃・光熱費などの支出額と事業使用割合を入力するだけで、経費計上額を無料で計算できるフリーランス・個人事業主向けツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/kaji-anbun-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "家事按分計算",
+  "url": "https://benri-tool.pages.dev/tools/kaji-anbun-keisan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "家事按分計算", "item": "https://benri-tool.pages.dev/tools/kaji-anbun-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 家事按分計算</p>
+  <h1>家事按分計算</h1>
+  <p class="lead">家賃・光熱費などの支出額と事業使用割合を入力すると、経費として計上できる金額を計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="anbun-amount">支出額（円）</label>
+      <input type="number" id="anbun-amount" min="0" placeholder="例：100000">
+    </div>
+    <div class="field">
+      <label for="anbun-rate">事業使用割合（%）</label>
+      <input type="number" id="anbun-rate" min="0" max="100" step="any" placeholder="例：30">
+    </div>
+    <button type="button" class="btn" id="anbun-calc-btn">計算する</button>
+    <div id="anbun-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <div class="card" style="margin-top:20px">
+    <h2 style="margin-top:0">面積から使用割合を計算</h2>
+    <div class="field">
+      <label for="anbun-work-area">仕事で使うスペースの面積（㎡）</label>
+      <input type="number" id="anbun-work-area" min="0" step="any" placeholder="例：8">
+    </div>
+    <div class="field">
+      <label for="anbun-total-area">自宅の総面積（㎡）</label>
+      <input type="number" id="anbun-total-area" min="0" step="any" placeholder="例：50">
+    </div>
+    <button type="button" class="btn" id="anbun-area-btn">使用割合を計算</button>
+    <div id="anbun-area-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">家事按分には明確な法定基準がなく、事業の実態に応じた合理的な割合を自分で算定する必要があります。面積・時間・使用日数など、説明可能な基準で按分するのが一般的です。不明な場合は税理士にご相談ください。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>家事按分の割合はどうやって決めればいいですか？</summary>
+      <p>面積・時間・使用日数など、合理的な基準で按分するのが一般的です。例えば自宅の一部を仕事専用スペースとして使っている場合は床面積の割合、電気代なら使用時間の割合で計算することが多いです。</p>
+    </details>
+    <details>
+      <summary>割合は自由に決めていいですか？</summary>
+      <p>税務調査で説明を求められた際に合理的に説明できる基準であることが重要です。極端に高い割合は否認されるリスクがあるため注意してください。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/gensen-choshuu-zeigaku-keisan/">
+        <div class="tool-card__title">源泉徴収税額計算</div>
+        <div class="tool-card__desc">報酬額から源泉徴収税額と差引支払額を計算</div>
+      </a>
+      <a class="tool-card" href="/tools/zeikomi/">
+        <div class="tool-card__title">消費税計算（税込⇔税抜）</div>
+        <div class="tool-card__desc">8%・10%を切替えて瞬時に計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('anbun-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('anbun-result');
+  var amount = parseFloat(document.getElementById('anbun-amount').value);
+  var rate = parseFloat(document.getElementById('anbun-rate').value);
+
+  if (isNaN(amount) || isNaN(rate) || amount < 0 || rate < 0 || rate > 100) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">支出額と事業使用割合（0〜100%）を入力してください</span>';
+    return;
+  }
+
+  var business = Math.round(amount * rate / 100);
+  var personal = amount - business;
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">経費計上額：' + business.toLocaleString() + ' 円</div>' +
+    '<span>家事負担分：' + personal.toLocaleString() + ' 円</span>';
+});
+
+document.getElementById('anbun-area-btn').addEventListener('click', function () {
+  var box = document.getElementById('anbun-area-result');
+  var work = parseFloat(document.getElementById('anbun-work-area').value);
+  var total = parseFloat(document.getElementById('anbun-total-area').value);
+
+  if (isNaN(work) || isNaN(total) || work < 0 || total <= 0 || work > total) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">仕事スペースの面積と、自宅の総面積（仕事スペース以上の値）を入力してください</span>';
+    return;
+  }
+
+  var rate = work / total * 100;
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">使用割合：約 ' + rate.toFixed(1) + ' %</div>' +
+    '<span>この割合を上のフォームの「事業使用割合」に入力してください</span>';
+});
+</script>
+</body>
+</html>

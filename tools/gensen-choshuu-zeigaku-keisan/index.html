@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>源泉徴収税額計算 | べんりツール</title>
+<meta name="description" content="報酬額を入力するだけで、フリーランス・個人事業主向けの源泉徴収税額と差引支払額を無料で計算できるツールです。">
+<link rel="canonical" href="https://benri-tool.pages.dev/tools/gensen-choshuu-zeigaku-keisan/">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "源泉徴収税額計算",
+  "url": "https://benri-tool.pages.dev/tools/gensen-choshuu-zeigaku-keisan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://benri-tool.pages.dev/"},
+    {"@type": "ListItem", "position": 2, "name": "ツール一覧", "item": "https://benri-tool.pages.dev/tools/"},
+    {"@type": "ListItem", "position": 3, "name": "源泉徴収税額計算", "item": "https://benri-tool.pages.dev/tools/gensen-choshuu-zeigaku-keisan/"}
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8338307154413289" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__logo" href="/">べんりツール</a>
+    <nav class="site-header__nav">
+      <a href="/tools/">ツール一覧</a>
+      <a href="/series/">シリーズ</a>
+      <a href="/about.html">このサイトについて</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="breadcrumb"><a href="/">ホーム</a> &gt; <a href="/tools/">ツール一覧</a> &gt; 源泉徴収税額計算</p>
+  <h1>源泉徴収税額計算</h1>
+  <p class="lead">報酬額（税抜）を入力すると、源泉徴収税額と差引支払額を計算します。</p>
+
+  <div class="card">
+    <div class="field">
+      <label for="gensen-amount">報酬額（税抜、円）</label>
+      <input type="number" id="gensen-amount" min="0" placeholder="例：300000">
+    </div>
+    <button type="button" class="btn" id="gensen-calc-btn">計算する</button>
+    <div id="gensen-result" class="result-box is-empty">結果はここに表示されます</div>
+  </div>
+
+  <p class="note-box">源泉徴収の対象となる報酬の種類（原稿料・デザイン料・講演料など）は所得税法で定められています。対象外の取引もあるため、不明な場合は税務署や税理士にご確認ください。請求書に消費税額を明確に区分して記載している場合は、税抜金額を基準に計算できます。</p>
+
+  <h2>よくある質問</h2>
+  <div class="faq">
+    <details>
+      <summary>源泉徴収の税率はどう決まりますか？</summary>
+      <p>100万円以下の部分は10.21%、100万円を超える部分は20.42%です（復興特別所得税を含みます）。</p>
+    </details>
+    <details>
+      <summary>消費税を含めた金額で計算すべきですか？</summary>
+      <p>請求書に消費税額を明確に区分して記載している場合は、税抜金額をもとに源泉徴収税額を計算できます。区分されていない場合は消費税を含めた総額が対象になります。</p>
+    </details>
+  </div>
+
+  <div class="related-tools">
+    <h2>関連ツール</h2>
+    <div class="tool-grid">
+      <a class="tool-card" href="/tools/kaji-anbun-keisan/">
+        <div class="tool-card__title">家事按分計算</div>
+        <div class="tool-card__desc">支出額と事業使用割合から経費計上額を計算</div>
+      </a>
+      <a class="tool-card" href="/tools/zeikomi/">
+        <div class="tool-card__title">消費税計算（税込⇔税抜）</div>
+        <div class="tool-card__desc">8%・10%を切替えて瞬時に計算</div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <span>&copy; 2026 べんりツール</span>
+    <div class="site-footer__links">
+      <a href="/about.html">このサイトについて</a>
+      <a href="/privacy.html">プライバシーポリシー</a>
+      <a href="/contact.html">お問い合わせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('gensen-calc-btn').addEventListener('click', function () {
+  var box = document.getElementById('gensen-result');
+  var amount = parseFloat(document.getElementById('gensen-amount').value);
+
+  if (isNaN(amount) || amount < 0) {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">報酬額を入力してください</span>';
+    return;
+  }
+
+  var tax;
+  if (amount <= 1000000) {
+    tax = amount * 0.1021;
+  } else {
+    tax = 1000000 * 0.1021 + (amount - 1000000) * 0.2042;
+  }
+  tax = Math.floor(tax);
+  var net = amount - tax;
+
+  box.className = 'result-box';
+  box.innerHTML = '<div class="big">源泉徴収税額：' + tax.toLocaleString() + ' 円</div>' +
+    '<span>差引支払額：' + net.toLocaleString() + ' 円</span>';
+});
+</script>
+</body>
+</html>
