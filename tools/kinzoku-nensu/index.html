@@ -52,11 +52,11 @@
   <div class="card">
     <div class="field">
       <label for="kz-start">入社日</label>
-      <input type="date" id="kz-start">
+      <input type="date" id="kz-start" min="1868-01-01" max="2099-12-31">
     </div>
     <div class="field">
       <label for="kz-base">基準日（退職日、または省略時は今日）</label>
-      <input type="date" id="kz-base">
+      <input type="date" id="kz-base" min="1868-01-01" max="2099-12-31">
     </div>
     <button type="button" class="btn" id="kz-calc-btn">計算する</button>
     <div id="kz-result" class="result-box is-empty">結果はここに表示されます</div>
@@ -107,6 +107,7 @@ function parseD(id) {
   var val = document.getElementById(id).value;
   if (!val) return null;
   var p = val.split('-').map(Number);
+  if (p[0] < 1868 || p[0] > 2099) return 'invalid';
   return new Date(p[0], p[1] - 1, p[2]);
 }
 
@@ -115,6 +116,11 @@ document.getElementById('kz-calc-btn').addEventListener('click', function () {
   var start = parseD('kz-start');
   var base = parseD('kz-base') || new Date(new Date().setHours(0, 0, 0, 0));
 
+  if (start === 'invalid' || base === 'invalid') {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">日付は西暦1868〜2099年の範囲で入力してください</span>';
+    return;
+  }
   if (!start) {
     box.className = 'result-box';
     box.innerHTML = '<span class="error-text">入社日を入力してください</span>';

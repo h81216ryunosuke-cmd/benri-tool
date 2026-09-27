@@ -53,11 +53,11 @@
     <h2 style="margin-top:0">2つの日付の間の日数</h2>
     <div class="field">
       <label for="nissu-start">開始日</label>
-      <input type="date" id="nissu-start">
+      <input type="date" id="nissu-start" min="1868-01-01" max="2099-12-31">
     </div>
     <div class="field">
       <label for="nissu-end">終了日</label>
-      <input type="date" id="nissu-end">
+      <input type="date" id="nissu-end" min="1868-01-01" max="2099-12-31">
     </div>
     <button type="button" class="btn" id="nissu-diff-btn">日数を計算</button>
     <div id="nissu-diff-result" class="result-box is-empty">結果はここに表示されます</div>
@@ -67,7 +67,7 @@
     <h2 style="margin-top:0">基準日からN日後・前の日付</h2>
     <div class="field">
       <label for="nissu-base">基準日</label>
-      <input type="date" id="nissu-base">
+      <input type="date" id="nissu-base" min="1868-01-01" max="2099-12-31">
     </div>
     <div class="field">
       <label for="nissu-n">日数</label>
@@ -129,6 +129,7 @@ function parseD(id) {
   var val = document.getElementById(id).value;
   if (!val) return null;
   var p = val.split('-').map(Number);
+  if (p[0] < 1868 || p[0] > 2099) return 'invalid';
   return new Date(p[0], p[1] - 1, p[2]);
 }
 
@@ -136,6 +137,11 @@ document.getElementById('nissu-diff-btn').addEventListener('click', function () 
   var box = document.getElementById('nissu-diff-result');
   var start = parseD('nissu-start');
   var end = parseD('nissu-end');
+  if (start === 'invalid' || end === 'invalid') {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">日付は西暦1868〜2099年の範囲で入力してください</span>';
+    return;
+  }
   if (!start || !end) {
     box.className = 'result-box';
     box.innerHTML = '<span class="error-text">開始日と終了日を入力してください</span>';
@@ -152,6 +158,11 @@ document.getElementById('nissu-shift-btn').addEventListener('click', function ()
   var base = parseD('nissu-base');
   var n = parseInt(document.getElementById('nissu-n').value, 10);
   var dir = document.getElementById('nissu-dir').value;
+  if (base === 'invalid') {
+    box.className = 'result-box';
+    box.innerHTML = '<span class="error-text">日付は西暦1868〜2099年の範囲で入力してください</span>';
+    return;
+  }
   if (!base || isNaN(n) || n < 0) {
     box.className = 'result-box';
     box.innerHTML = '<span class="error-text">基準日と日数を入力してください</span>';

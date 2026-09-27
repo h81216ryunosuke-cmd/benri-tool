@@ -52,8 +52,16 @@
   <div class="card">
     <h2 style="margin-top:0">西暦→和暦</h2>
     <div class="field">
-      <label for="seireki-date">日付（西暦）</label>
-      <input type="date" id="seireki-date">
+      <label for="seireki-year">西暦（年）</label>
+      <select id="seireki-year"></select>
+    </div>
+    <div class="field">
+      <label for="seireki-month">月</label>
+      <select id="seireki-month"></select>
+    </div>
+    <div class="field">
+      <label for="seireki-day">日</label>
+      <select id="seireki-day"></select>
     </div>
     <button type="button" class="btn" id="to-wareki-btn">和暦に変換</button>
     <div id="wareki-result" class="result-box is-empty">結果はここに表示されます</div>
@@ -128,16 +136,38 @@ var ERAS = [
   { name: '明治', start: new Date(1868, 0, 25) }
 ];
 
+(function () {
+  var yearSelect = document.getElementById('seireki-year');
+  var currentYear = new Date().getFullYear();
+  for (var y = 1868; y <= 2099; y++) {
+    var yOpt = document.createElement('option');
+    yOpt.value = y;
+    yOpt.textContent = y + '年';
+    if (y === currentYear) yOpt.selected = true;
+    yearSelect.appendChild(yOpt);
+  }
+  var monthSelect = document.getElementById('seireki-month');
+  for (var m = 1; m <= 12; m++) {
+    var mOpt = document.createElement('option');
+    mOpt.value = m;
+    mOpt.textContent = m + '月';
+    monthSelect.appendChild(mOpt);
+  }
+  var daySelect = document.getElementById('seireki-day');
+  for (var dd = 1; dd <= 31; dd++) {
+    var dOpt = document.createElement('option');
+    dOpt.value = dd;
+    dOpt.textContent = dd + '日';
+    daySelect.appendChild(dOpt);
+  }
+})();
+
 document.getElementById('to-wareki-btn').addEventListener('click', function () {
   var resultBox = document.getElementById('wareki-result');
-  var val = document.getElementById('seireki-date').value;
-  if (!val) {
-    resultBox.className = 'result-box';
-    resultBox.innerHTML = '<span class="error-text">日付を入力してください</span>';
-    return;
-  }
-  var parts = val.split('-').map(Number);
-  var d = new Date(parts[0], parts[1] - 1, parts[2]);
+  var year = parseInt(document.getElementById('seireki-year').value, 10);
+  var month = parseInt(document.getElementById('seireki-month').value, 10);
+  var day = parseInt(document.getElementById('seireki-day').value, 10);
+  var d = new Date(year, month - 1, day);
 
   var era = ERAS.find(function (e) { return d >= e.start; });
   if (!era) {

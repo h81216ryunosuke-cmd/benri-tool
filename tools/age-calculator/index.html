@@ -52,11 +52,11 @@
   <div class="card">
     <div class="field">
       <label for="birth-date">生年月日</label>
-      <input type="date" id="birth-date">
+      <input type="date" id="birth-date" min="1868-01-01" max="2099-12-31">
     </div>
     <div class="field">
       <label for="base-date">基準日（省略時は今日）</label>
-      <input type="date" id="base-date">
+      <input type="date" id="base-date" min="1868-01-01" max="2099-12-31">
     </div>
     <button type="button" class="btn" id="age-calc-btn">計算する</button>
     <div id="age-result" class="result-box is-empty">結果はここに表示されます</div>
@@ -101,6 +101,7 @@ function parseDateInput(id) {
   var val = document.getElementById(id).value;
   if (!val) return null;
   var p = val.split('-').map(Number);
+  if (p[0] < 1868 || p[0] > 2099) return 'invalid';
   return new Date(p[0], p[1] - 1, p[2]);
 }
 
@@ -109,6 +110,11 @@ document.getElementById('age-calc-btn').addEventListener('click', function () {
   var birth = parseDateInput('birth-date');
   var base = parseDateInput('base-date') || new Date(new Date().setHours(0, 0, 0, 0));
 
+  if (birth === 'invalid' || base === 'invalid') {
+    resultBox.className = 'result-box';
+    resultBox.innerHTML = '<span class="error-text">日付は西暦1868〜2099年の範囲で入力してください</span>';
+    return;
+  }
   if (!birth) {
     resultBox.className = 'result-box';
     resultBox.innerHTML = '<span class="error-text">生年月日を入力してください</span>';
